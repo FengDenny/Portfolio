@@ -25,9 +25,13 @@ export const FadingBackground = styled(BaseModalBackground)`
 
 // Main
 export const Main = styled.main`
+  position: relative;
   grid-area: main;
   padding: 0.25rem;
-  margin: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
 `;
 
 // Navbar
@@ -121,7 +125,6 @@ export const StyledBurger = styled.button`
 export const StyledMenu = styled.nav`
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   transition: transform 0.3s ease-in-out;
-
   ${MediaQueries("laptop")`
   display: flex;
   flex-direction: column;
