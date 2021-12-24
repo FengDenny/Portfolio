@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { MediaQueries } from "./MediaQueries.styled";
+import { motion, Variants } from "framer-motion";
 export const GlobalStyles = createGlobalStyle`
 
 *{
@@ -43,9 +44,10 @@ export const theme = {
   fontSizeSM: "20px",
   fontSizeMD: "30px",
   fontSizeLG: "40px",
-  fontSizeHero: "100px",
+  fontSizeHero: "90px",
   primaryColor: "var(--primary-color)",
   secondaryColor: "var(--secondary-color)",
+  bgColor: "var(--bg-color)",
   height: "100vh",
   justifyContent: "space-between",
   width: "120px",
@@ -142,15 +144,6 @@ export const H1 = styled.h1`
 export const HeroH1 = styled(H1)`
   font-size: ${(props) => props.theme.fontSizeHero};
   text-shadow: var(--text-shadow);
-  // animation start
-  width: 100%;
-  -webkit-animation: ${type} 2s steps(40, end);
-  animation: ${type} 2s steps(40, end);
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  border-right: 0.1em solid var(--primary-color);
-  white-space: nowrap;
-  overflow: hidden;
 `;
 export const H2 = styled.h2`
   font-size: ${(props) => props.theme.fontSizeMD};
@@ -164,18 +157,6 @@ export const Paragraph = styled.p`
   font-size: ${(props) => props.theme.fontSizeMD};
   padding-top: 1rem;
   margin-left: 0.5rem;
-  //animation start
-  width: 45rem;
-  opacity: 0;
-  -webkit-animation: ${type2} 2s steps(40, end);
-  animation: ${type2} 2s steps(40, end);
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  border-right: 0.1em solid var(--primary-color);
-  white-space: nowrap;
-  overflow: hidden;
 `;
 
 export const Span = styled.span`
@@ -215,7 +196,7 @@ export const PositionBottomRelative = styled.div`
   bottom: ${(props) => props.theme.bottom};
 `;
 
-export const MarginTop = styled.div`
+export const MarginTop = styled(motion.div)`
   position: relative;
   margin-top: ${(props) => props.theme.marginTop};
 `;
@@ -239,7 +220,36 @@ export const HRLine = styled.hr`
 
 // Card
 
-export const StyledCard = styled.div`
+export const HeroCardContainer = styled(motion.div)`
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 100px;
+`;
+
+export const CardContainer = styled(HeroCardContainer)`
+  flex-direction: column;
+`;
+
+export const HeroCard = styled(motion.div)`
+  width: 900px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: ${(props) => props.theme.bgColor};
+  border-radius: 20px;
+  box-shadow: 0 0 1px hsl(0deg 0% 0% / 0.075), 0 0 2px hsl(0deg 0% 0% / 0.075),
+    0 0 4px hsl(0deg 0% 0% / 0.075), 0 0 8px hsl(0deg 0% 0% / 0.075),
+    0 0 16px hsl(0deg 0% 0% / 0.075);
+  transform-origin: 10% 70%;
+  padding: 27px;
+`;
+
+export const StyledCard = styled(motion.div)`
   display: flex;
   flex-direction: ${({ direction }) => direction || "column"};
   algin-items: center;
@@ -249,6 +259,7 @@ export const StyledCard = styled.div`
   margin: 40px 0;
   padding: 60px;
   width: 900px;
+  z-index: 2;
   img {
     width: 80%;
     display: block;
@@ -271,22 +282,24 @@ export const StyledCard = styled.div`
     color: ${({ pColor }) => pColor || "#fff"};
     line-height: ${({ lineHeight }) => lineHeight || "35px"};
   }
+`;
 
-  a {
-    position: relative;
-    color: ${({ color }) => color || "#fff"};
-    border: 2px solid ${({ border }) => border || "#fff"};
-    display: flex;
-    justify-content: center;
-    width: 150px;
-    height: 30px;
-    margin: ${({ margin }) => margin || "0px"};
-    border-radius: 10px;
-    font-size: ${(props) => props.theme.fontSizeSM};
-    font-weight: ${(props) => props.theme.fontWeight};
-  }
+export const CardButton = styled(motion.button)`
+  position: relative;
+  background-color: ${({ background }) => background || "var(--bg-color)"};
+  color: ${({ color }) => color || "#fff"};
+  border: 2px solid ${({ border }) => border || "#fff"};
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 30px;
+  margin: ${({ margin }) => margin || "0px"};
+  border-radius: 10px;
+  font-size: ${(props) => props.theme.fontSizeSM};
+  font-weight: ${(props) => props.theme.fontWeight};
+  cursor: pointer;
 
-  a:hover {
+  :hover {
     color: ${({ hoverColor }) => hoverColor || "var(--primary-color)"};
     border: 2px solid ${({ border }) => border || "#fff"};
     background: ${({ hoverBG }) => hoverBG || "#FFF"};
@@ -305,7 +318,31 @@ export const HeroLink = styled.a`
   :hover {
     color: var(--secondary-color);
   }
-  //   animations
-  visibility: hidden;
-  animation: ${type3} 0s 4s forwards;
+`;
+
+// Diamond
+export const DiamondStyle = styled(motion.div)`
+  height: 150px;
+  width: 150px;
+  background-color: #7fdbff;
+  transform: rotate(45deg);
+  position: ${({ position }) => position || "absolute"};
+  right: ${({ right }) => right || "0"};
+  top: ${({ top }) => top || "183px"};
+  box-shadow: ${({ shadow }) => shadow || "var(--drop-shadow)"};
+  background-color: ${({ background }) =>
+    background || "var(--secondary-color)"};
+`;
+
+export const DiamondStyleTwo = styled(motion.div)`
+  height: 150px;
+  width: 150px;
+  background-color: #7fdbff;
+  transform: rotate(45deg);
+  position: ${({ position }) => position || "relative"};
+  right: ${({ right }) => right || "0"};
+  bottom: ${({ bottom }) => bottom || "253px"};
+  box-shadow: ${({ shadow }) => shadow || "var(--drop-shadow)"};
+  background-color: ${({ background }) =>
+    background || "var(--secondary-color)"};
 `;

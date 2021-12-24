@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Modal, { BaseModalBackground } from "styled-react-modal";
 import { MediaQueries } from "./MediaQueries.styled";
+import { motion } from "framer-motion";
 
 // Modal
 export const FadingBackground = styled(BaseModalBackground)`
@@ -20,7 +21,7 @@ export const Main = styled.main`
   //   width: 150px;
 `;
 // Content
-export const ProjectContent = styled.div`
+export const ProjectContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: relative;
