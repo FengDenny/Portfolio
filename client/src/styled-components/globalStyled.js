@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import { MediaQueries } from "./styled";
-
+import { MediaQueries } from "./MediaQueries.styled";
 export const GlobalStyles = createGlobalStyle`
 
 *{
@@ -53,10 +52,11 @@ export const theme = {
   buttonHeight: "30px",
   flexDirection: "column",
   flexDirectionRow: "row",
+  bottom: "10rem",
+  marginTop: "10px",
 };
 
 // Type Effect
-
 const type = keyframes`
 0% {
     width: 0;
@@ -121,15 +121,15 @@ to   { visibility: visible; }
 // Containers
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 0.2fr 1fr 0.5fr 0.5fr;
+  grid-template-rows: 0.2fr 0.2fr 0.5fr 0.5fr;
   grid-template-areas:
     "nav nav nav nav"
     "main main main main"
     "content content content content"
     "footer footer footer footer";
-  grid-gap: 0.25rem;
+  grid-gap: 0.2rem;
   transition: all 0.25s ease-in-out;
-  max-width: 1400px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0;
 `;
@@ -151,6 +151,11 @@ export const HeroH1 = styled(H1)`
   border-right: 0.1em solid var(--primary-color);
   white-space: nowrap;
   overflow: hidden;
+`;
+export const H2 = styled.h2`
+  font-size: ${(props) => props.theme.fontSizeMD};
+  text-shadow: var(--text-shadow);
+  color: ${(props) => props.theme.primaryColor};
 `;
 
 export const Paragraph = styled.p`
@@ -180,7 +185,6 @@ export const Span = styled.span`
 `;
 
 // Button
-
 export const ButtonPrimary = styled.button`
   position: relative;
   top: 0.2rem;
@@ -205,6 +209,17 @@ export const ButtonPrimary = styled.button`
   `}
 `;
 
+// Positioning
+export const PositionBottomRelative = styled.div`
+  position: relative;
+  bottom: ${(props) => props.theme.bottom};
+`;
+
+export const MarginTop = styled.div`
+  position: relative;
+  margin-top: ${(props) => props.theme.marginTop};
+`;
+
 // Flex
 export const DisplayFlex = styled.div`
   display: flex;
@@ -214,6 +229,68 @@ export const DisplayFlex = styled.div`
 export const DisplayFlexRow = styled.div`
   display: flex;
   flex-direction: ${(props) => props.theme.flexDirectionRow};
+`;
+
+// HR
+export const HRLine = styled.hr`
+  width: ${(props) => props.theme.width};
+  border: 1px solid var(--primary-color);
+`;
+
+// Card
+
+export const StyledCard = styled.div`
+  display: flex;
+  flex-direction: ${({ direction }) => direction || "column"};
+  algin-items: center;
+  background-color: ${({ background }) => background || "var(--bg-color)"};
+  border-radius: 10px;
+  box-shadow: ${({ shadow }) => shadow || "none"};
+  margin: 40px 0;
+  padding: 60px;
+  width: 900px;
+  img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+  & > div {
+    flex: 1;
+  }
+  h2 {
+    text-align: ${({ align }) => align || "flex-start"};
+    color: ${({ color }) => color || "#fff"};
+  }
+  p {
+    width: ${({ width }) => width || "444px"};
+    margin: ${({ margin }) => margin || "0px"};
+    font-size: ${(props) => props.theme.fontSizeSM};
+    color: ${({ pColor }) => pColor || "#fff"};
+    line-height: ${({ lineHeight }) => lineHeight || "35px"};
+  }
+
+  a {
+    position: relative;
+    color: ${({ color }) => color || "#fff"};
+    border: 2px solid ${({ border }) => border || "#fff"};
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 30px;
+    margin: ${({ margin }) => margin || "0px"};
+    border-radius: 10px;
+    font-size: ${(props) => props.theme.fontSizeSM};
+    font-weight: ${(props) => props.theme.fontWeight};
+  }
+
+  a:hover {
+    color: ${({ hoverColor }) => hoverColor || "var(--primary-color)"};
+    border: 2px solid ${({ border }) => border || "#fff"};
+    background: ${({ hoverBG }) => hoverBG || "#FFF"};
+  }
 `;
 
 // Hero

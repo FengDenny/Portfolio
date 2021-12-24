@@ -1,21 +1,6 @@
 import styled from "styled-components";
 import Modal, { BaseModalBackground } from "styled-react-modal";
-
-// media queries
-
-const size = {
-  mobileS: "320px",
-  mobileM: "375px",
-  mobileL: "425px",
-  tablet: "768px",
-  laptop: "1024px",
-  laptopL: "1440px",
-  desktop: "2560px",
-};
-
-export const MediaQueries = (key) => {
-  return (style) => `@media (max-width: ${size[key]}){${style}}`;
-};
+import { MediaQueries } from "./MediaQueries.styled";
 
 // Modal
 export const FadingBackground = styled(BaseModalBackground)`
@@ -31,11 +16,18 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 50vh;
+  height: 20vh;
+  //   width: 150px;
+`;
+// Content
+export const ProjectContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  grid-area: content;
 `;
 
 // Navbar
-
 export const Nav = styled.nav`
   position: relative;
   right: 20rem;
@@ -121,7 +113,6 @@ export const StyledBurger = styled.button`
   flex-direction: column;
 `}
 `;
-
 export const StyledMenu = styled.nav`
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   transition: transform 0.3s ease-in-out;
