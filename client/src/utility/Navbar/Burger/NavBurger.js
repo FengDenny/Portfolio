@@ -8,7 +8,7 @@ export default function NavBurger({ open, setOpen }) {
       onClick={() => setOpen((open) => !open)}
       animate={{
         scale: open ? 0.8 : 1,
-        opacity: open ? 0.5 : 1,
+        opacity: open ? 1 : 1,
       }}
       transition={{ type: "spring", bounce: 0, duration: 0.4 }}
     >
