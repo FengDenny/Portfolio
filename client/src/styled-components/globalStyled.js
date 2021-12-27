@@ -17,9 +17,7 @@ html,body{
     background:var(--bg-color);
     font-family:var(--primary-font);
 }
-body{
-    overflow-x:hidden;
-}
+
 :root{
     --bg-color: #F6F9FC;
     --primary-color: #333333;
@@ -57,68 +55,6 @@ export const theme = {
   bottom: "10rem",
   marginTop: "10px",
 };
-
-// Type Effect
-const type = keyframes`
-0% {
-    width: 0;
-  }
-  99.9% {
-    border-right: .1em solid var(--primary-color);
-  }
-  100% {
-    border: none;
-  }
-  @-webkit-keyframes type {
-    0% {
-      width: 0;
-    }
-    99.9% {
-      border-right: .1em solid var(--primary-color);
-    }
-    100% {
-      border: none;
-    }
-  }
-`;
-const type2 = keyframes`
-0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .1em solid var(--primary-color);
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-  
-  @-webkit-keyframes type2 {
-    0% {
-      width: 0;
-    }
-    1% {
-      opacity: 1;
-    }
-    99.9% {
-      border-right: .1em solid var(--primary-color);
-    }
-    100% {
-      opacity: 1;
-      border: none;
-    }
-}
-`;
-const type3 = keyframes`
-to   { visibility: visible; }
-  
-  @-webkit-keyframes type3 {
-    to   { visibility: visible; }
-  }
-`;
 
 // Containers
 export const Container = styled.div`
