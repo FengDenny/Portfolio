@@ -31,11 +31,17 @@ export const ProjectContent = styled(motion.div)`
 // Navbar
 export const Nav = styled.nav`
   position: relative;
-  right: 20rem;
   ${MediaQueries("laptop")`
-  right:0px;
+  right:40px;
+  top:30px;
   display: flex;
 flex-direction: column;
+`}
+`;
+export const NavDesktop = styled.nav`
+  position: relative;
+  ${MediaQueries("laptop")`
+    display:none;
 `}
 `;
 
@@ -69,7 +75,7 @@ export const NavLink = styled.a`
   }
 `;
 
-export const StyledBurger = styled.button`
+export const StyledBurger = styled(motion.button)`
   position: absolute;
   top: 2%;
   right: 2rem;
@@ -114,17 +120,4 @@ export const StyledBurger = styled.button`
   flex-direction: column;
 `}
 `;
-export const StyledMenu = styled.nav`
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
-  transition: transform 0.3s ease-in-out;
-  ${MediaQueries("laptop")`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 20vh;
-  padding: 2rem;
-  margin-top:2rem;
-margin-right:2rem;
-  width:30%;
-`}
-`;
+export const StyledMenu = styled(motion.div)``;
