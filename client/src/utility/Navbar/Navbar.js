@@ -10,6 +10,9 @@ export default function Navbar() {
   // Nav Burger
   const [open, setOpen] = useState(false);
   const node = useRef();
+
+  const closeNavMenu = () => setOpen(false);
+
   return (
     <ThemeProvider theme={theme}>
       <NavbarContainer ref={node}>
@@ -17,7 +20,7 @@ export default function Navbar() {
           <NavbarLogo src={NavLogo} alt='DF' />
         </div>
         <NavBurger open={open} setOpen={setOpen} />
-        <BurgerMenu open={open} />
+        <BurgerMenu open={open} closeNavMenu={closeNavMenu} />
       </NavbarContainer>
     </ThemeProvider>
   );
