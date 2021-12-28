@@ -192,8 +192,8 @@ export const HeroCard = styled(motion.div)`
   padding: 27px;
 
   ${MediaQueries("laptop")`
-    width:calc(100vw - 200px);
-    height: calc(100% - 200px);
+    width:calc(100vw - 89px);
+    height: 100%
    `}
 `;
 
