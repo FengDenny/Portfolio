@@ -41,6 +41,6 @@ export const project = [
     github: "https://github.com/FengDenny/csc642participaid",
     figma:
       "https://www.figma.com/file/5orBOkFkjzB2Qp0wqSFJZk/Team1?node-id=17%3A4726",
-    image: "participaid.png",
+    image: "participaid_home.png",
   },
 ];
