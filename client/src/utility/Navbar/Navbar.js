@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import BurgerMenu from "./Burger/BurgerMenu";
 import NavBurger from "./Burger/NavBurger";
 import NavLogo from "../../images/logos/logo_port.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   // Nav Burger
@@ -13,11 +14,13 @@ export default function Navbar() {
 
   const closeNavMenu = () => setOpen(false);
 
+  const navigate = useNavigate();
+
   return (
     <ThemeProvider theme={theme}>
       <NavbarContainer ref={node}>
         <div>
-          <NavbarLogo src={NavLogo} alt='DF' />
+          <NavbarLogo src={NavLogo} alt='DF' onClick={() => navigate("/#")} />
         </div>
         <NavBurger open={open} setOpen={setOpen} />
         <BurgerMenu open={open} closeNavMenu={closeNavMenu} />
