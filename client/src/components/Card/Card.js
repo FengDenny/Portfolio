@@ -26,11 +26,11 @@ export default function Card({
       >
         <StyledCard
           direction={id % 2 !== 0 ? "row" : undefined}
-          background={id % 2 !== 0 && "var(--primary-color)"}
-          border={id % 2 !== 0 && "var(--border-radius)"}
-          shadow={id % 2 !== 0 && "var(--drop-shadow)"}
+          background={id % 2 !== 0 ? "var(--primary-color)" : undefined}
+          border={id % 2 !== 0 ? "var(--border-radius)" : undefined}
+          shadow={id % 2 !== 0 ? "var(--drop-shadow)" : undefined}
           width={id % 2 === 0 ? "750px" : undefined}
-          align={id % 2 === 0 && "center"}
+          align={id % 2 === 0 ? "center" : undefined}
           color={
             id === 2
               ? "var( --data-suvery-color)"
@@ -46,20 +46,20 @@ export default function Card({
               ? "var(--secondary-color)"
               : undefined
           }
-          hoverBG={
+          hoverbg={
             id === 2
               ? "var( --data-suvery-color)"
               : id === 4
               ? "var(--secondary-color)"
               : undefined
           }
-          hoverColor={id % 2 === 0 ? "#fff" : undefined}
-          margin={id % 2 === 0 && "auto"}
-          pColor={id % 2 === 0 && "var(--primary-color)"}
-          lineHeight={id % 2 === 0 && "50px"}
-          variants={id % 2 !== 0 && rotateVariants}
-          mobileWidth={id % 2 === 0 ? "500px" : undefined}
-          imgShadow={id === 4 ? "var(--drop-shadow)" : undefined}
+          hover={id % 2 === 0 ? "#fff" : undefined}
+          margin={id % 2 === 0 ? "auto" : undefined}
+          pcolor={id % 2 === 0 ? "var(--primary-color)" : undefined}
+          lineheight={id % 2 === 0 ? "50px" : undefined}
+          variants={id % 2 !== 0 ? rotateVariants : undefined}
+          mobilewidth={id % 2 === 0 ? "500px" : undefined}
+          imgshadow={id === 4 ? "var(--drop-shadow)" : undefined}
         >
           <div>
             <H2 theme={{ fontSizeMD: "30px" }}>{title}</H2>
@@ -82,8 +82,8 @@ export default function Card({
                     ? "var(--secondary-color)"
                     : undefined
                 }
-                background={id % 2 !== 0 && "var(--primary-color)"}
-                hoverBG={
+                background={id % 2 !== 0 ? "var(--primary-color)" : undefined}
+                hoverbg={
                   id === 2
                     ? "var( --data-suvery-color)"
                     : id === 4
@@ -97,7 +97,7 @@ export default function Card({
                     ? "var(--secondary-color)"
                     : undefined
                 }
-                hoverColor={id % 2 === 0 ? "#fff" : undefined}
+                hovercolor={id % 2 === 0 ? "#fff" : undefined}
               >
                 Demo
               </CardButton>

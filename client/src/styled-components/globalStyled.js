@@ -209,8 +209,8 @@ export const StyledCard = styled(motion.div)`
   width: 900px;
   z-index: 2;
   img {
-    width: ${({ mobileWidth }) => mobileWidth || "322px"};
-    box-shadow: ${({ imgShadow }) => imgShadow || "none"};
+    width: ${({ mobilewidth }) => mobilewidth || "322px"};
+    box-shadow: ${({ imgshadow }) => imgshadow || "none"};
     margin-top: 15px;
     border-radius: 10px;
   }
@@ -225,8 +225,8 @@ export const StyledCard = styled(motion.div)`
     width: ${({ width }) => width || "406px"};
     margin: ${({ margin }) => margin || "0px"};
     font-size: ${(props) => props.theme.fontSizeSM};
-    color: ${({ pColor }) => pColor || "#fff"};
-    line-height: ${({ lineHeight }) => lineHeight || "35px"};
+    color: ${({ pcolor }) => pcolor || "#fff"};
+    line-height: ${({ lineheight }) => lineheight || "35px"};
   }
 
   ${MediaQueries("laptop")`
@@ -265,9 +265,9 @@ export const CardButton = styled(motion.button)`
   cursor: pointer;
 
   :hover {
-    color: ${({ hoverColor }) => hoverColor || "var(--primary-color)"};
+    color: ${({ hovercolor }) => hovercolor || "var(--primary-color)"};
     border: 2px solid ${({ border }) => border || "#fff"};
-    background: ${({ hoverBG }) => hoverBG || "#FFF"};
+    background: ${({ hoverbg }) => hoverbg || "#FFF"};
   }
   ${MediaQueries("laptop")`
   margin:auto;
