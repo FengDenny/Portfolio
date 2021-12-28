@@ -80,6 +80,10 @@ export const H1 = styled.h1`
 export const HeroH1 = styled(H1)`
   font-size: ${(props) => props.theme.fontSizeHero};
   text-shadow: var(--text-shadow);
+
+  ${MediaQueries("laptop")`
+    font-size: 4.5em;
+   `}
 `;
 export const H2 = styled.h2`
   font-size: ${(props) => props.theme.fontSizeMD};
@@ -148,6 +152,11 @@ export const DisplayFlexRow = styled.div`
   flex-direction: ${(props) => props.theme.flexDirectionRow};
 `;
 
+export const DisplayFlexCenter = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 // HR
 export const HRLine = styled.hr`
   width: ${(props) => props.theme.width};
@@ -162,8 +171,6 @@ export const HeroCardContainer = styled(motion.div)`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-top: 20px;
-  margin-bottom: 100px;
 `;
 
 export const CardContainer = styled(HeroCardContainer)`
@@ -183,6 +190,11 @@ export const HeroCard = styled(motion.div)`
     0 0 16px hsl(0deg 0% 0% / 0.075);
   transform-origin: 10% 70%;
   padding: 27px;
+
+  ${MediaQueries("laptop")`
+    width:calc(100vw - 200px);
+    height: calc(100% - 200px);
+   `}
 `;
 
 export const StyledCard = styled(motion.div)`
@@ -197,10 +209,8 @@ export const StyledCard = styled(motion.div)`
   width: 900px;
   z-index: 2;
   img {
-    width: 80%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: ${({ mobileWidth }) => mobileWidth || "322px"};
+    box-shadow: ${({ imgShadow }) => imgShadow || "none"};
     margin-top: 15px;
     border-radius: 10px;
   }
@@ -212,12 +222,31 @@ export const StyledCard = styled(motion.div)`
     color: ${({ color }) => color || "#fff"};
   }
   p {
-    width: ${({ width }) => width || "444px"};
+    width: ${({ width }) => width || "406px"};
     margin: ${({ margin }) => margin || "0px"};
     font-size: ${(props) => props.theme.fontSizeSM};
     color: ${({ pColor }) => pColor || "#fff"};
     line-height: ${({ lineHeight }) => lineHeight || "35px"};
   }
+
+  ${MediaQueries("laptop")`
+  width: calc(100vw - 188px);
+    flex-direction:column;
+
+    h2{
+      text-align:center;
+    }
+
+    .odd{
+      width: calc(100vw - 285px); 
+    } 
+    
+    .even{
+      width: calc(100vw - 92px); 
+      position: relative;
+      right:109px;
+    } 
+   `}
 `;
 
 export const CardButton = styled(motion.button)`
@@ -240,6 +269,10 @@ export const CardButton = styled(motion.button)`
     border: 2px solid ${({ border }) => border || "#fff"};
     background: ${({ hoverBG }) => hoverBG || "#FFF"};
   }
+  ${MediaQueries("laptop")`
+  margin:auto;
+
+ `}
 `;
 
 // Hero
@@ -264,10 +297,14 @@ export const DiamondStyle = styled(motion.div)`
   transform: rotate(45deg);
   position: ${({ position }) => position || "absolute"};
   right: ${({ right }) => right || "0"};
-  top: ${({ top }) => top || "183px"};
+  top: ${({ top }) => top || "32px"};
   box-shadow: ${({ shadow }) => shadow || "var(--drop-shadow)"};
   background-color: ${({ background }) =>
     background || "var(--secondary-color)"};
+
+  ${MediaQueries("laptop")`
+      right:31px;
+   `}
 `;
 
 export const DiamondStyleTwo = styled(motion.div)`
@@ -277,8 +314,12 @@ export const DiamondStyleTwo = styled(motion.div)`
   transform: rotate(45deg);
   position: ${({ position }) => position || "relative"};
   right: ${({ right }) => right || "0"};
-  bottom: ${({ bottom }) => bottom || "253px"};
+  bottom: ${({ bottom }) => bottom || "131px"};
   box-shadow: ${({ shadow }) => shadow || "var(--drop-shadow)"};
   background-color: ${({ background }) =>
     background || "var(--secondary-color)"};
+
+  ${MediaQueries("laptop")`
+    left:31px;
+ `}
 `;
