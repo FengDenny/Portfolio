@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.js": "/static/js/main.bc36ac50.js",
+    "main.js": "/static/js/main.bf0dec8c.js",
     "static/js/787.9b9c0edf.chunk.js": "/static/js/787.9b9c0edf.chunk.js",
     "static/media/ProductScreenshots.pdf": "/static/media/ProductScreenshots.dafeed840db02e750666.pdf",
     "static/media/gatordash.png": "/static/media/gatordash.c78c1ebbce9bc4e283c1.png",
+    "static/media/participaid_home.png": "/static/media/participaid_home.34d898fb033d82d0fdfa.png",
     "static/media/dataSurvey.png": "/static/media/dataSurvey.c8a706befb33ca26cff2.png",
     "static/media/participaid.png": "/static/media/participaid.af4b7399ec332c58c10d.png",
     "static/media/Denny Resume.pdf": "/static/media/Denny Resume.acbd20d5d42127fb8ee9.pdf",
     "static/media/knewlys.png": "/static/media/knewlys.ee136a3d02549e7f5895.png",
     "index.html": "/index.html",
-    "main.bc36ac50.js.map": "/static/js/main.bc36ac50.js.map",
+    "main.bf0dec8c.js.map": "/static/js/main.bf0dec8c.js.map",
     "787.9b9c0edf.chunk.js.map": "/static/js/787.9b9c0edf.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.bc36ac50.js"
+    "static/js/main.bf0dec8c.js"
   ]
 }
