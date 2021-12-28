@@ -230,7 +230,7 @@ export const StyledCard = styled(motion.div)`
   }
 
   ${MediaQueries("laptop")`
-  width: calc(100vw - 188px);
+  width: calc(100vw - 171px);
     flex-direction:column;
 
     h2{
@@ -238,7 +238,7 @@ export const StyledCard = styled(motion.div)`
     }
 
     .odd{
-      width: calc(100vw - 285px); 
+      width: calc(100vw - 262px); 
     } 
     
     .even{
