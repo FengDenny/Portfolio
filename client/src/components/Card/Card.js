@@ -6,6 +6,7 @@ import {
   MarginTop,
   HeroCardContainer,
   CardButton,
+  DisplayFlexCenter,
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
 import {
@@ -57,10 +58,16 @@ export default function Card({
           pColor={id % 2 === 0 && "var(--primary-color)"}
           lineHeight={id % 2 === 0 && "50px"}
           variants={id % 2 !== 0 && rotateVariants}
+          mobileWidth={id % 2 === 0 ? "500px" : undefined}
+          imgShadow={id === 4 ? "var(--drop-shadow)" : undefined}
         >
           <div>
             <H2 theme={{ fontSizeMD: "30px" }}>{title}</H2>
-            <p>{description}</p>
+            {id % 2 === 0 ? (
+              <p className='even'>{description}</p>
+            ) : (
+              <p className='odd'>{description}</p>
+            )}
             <MarginTop>
               <CardButton
                 onClick={() =>
@@ -96,12 +103,12 @@ export default function Card({
               </CardButton>
             </MarginTop>
           </div>
-          <div>
+          <DisplayFlexCenter>
             <img
               src={require(`../../images/projectImage/${image}`)}
               alt={title}
             />
-          </div>
+          </DisplayFlexCenter>
         </StyledCard>
       </HeroCardContainer>
     </ThemeProvider>
