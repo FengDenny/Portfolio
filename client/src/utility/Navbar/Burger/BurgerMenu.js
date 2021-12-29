@@ -23,7 +23,9 @@ export default function BurgerMenu({ open = false, closeNavMenu }) {
           transition={{ type: "spring", bounce: 0, duration: 0.4 }}
         >
           <Nav onClick={() => closeNavMenu()}>
-            <NavLink href='#'>About</NavLink>
+            <li>
+              <NavLink href='about'>About</NavLink>
+            </li>
             <NavLink href='#'>Contact</NavLink>
             <ButtonPrimary
               onClick={() =>
@@ -36,15 +38,23 @@ export default function BurgerMenu({ open = false, closeNavMenu }) {
         </StyledMenu>
       ) : (
         <NavDesktop>
-          <NavLink href='#'>About</NavLink>
-          <NavLink href='#'>Contact</NavLink>
-          <ButtonPrimary
-            onClick={() =>
-              window.open(ResumePDF, "_blank", "noopener", "noreferrer")
-            }
-          >
-            Resume
-          </ButtonPrimary>
+          <li>
+            <NavLink href='/#/about'>About</NavLink>
+          </li>
+
+          <li>
+            <NavLink href='#'>Contact</NavLink>
+          </li>
+
+          <li>
+            <ButtonPrimary
+              onClick={() =>
+                window.open(ResumePDF, "_blank", "noopener", "noreferrer")
+              }
+            >
+              Resume
+            </ButtonPrimary>
+          </li>
         </NavDesktop>
       )}
     </AnimatePresence>
