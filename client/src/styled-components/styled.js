@@ -18,10 +18,9 @@ export const Main = styled.main`
   flex-direction: column;
   justify-content: center;
   height: 20vh;
-  //   width: 150px;
 `;
 // Content
-export const ProjectContent = styled(motion.div)`
+export const ProjectContent = styled(motion.section)`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -38,8 +37,9 @@ export const Nav = styled.nav`
 flex-direction: column;
 `}
 `;
-export const NavDesktop = styled.nav`
+export const NavDesktop = styled.ul`
   position: relative;
+  display: flex;
   ${MediaQueries("laptop")`
     display:none;
 `}
@@ -53,6 +53,7 @@ export const NavbarContainer = styled.nav`
   justify-content: ${(props) => props.theme.justifyContent};
   padding: 0.25rem;
   margin-top: 1rem;
+  height: 50px;
 `;
 
 export const NavbarLogo = styled.img`
@@ -76,6 +77,21 @@ export const NavLink = styled.a`
   }
 `;
 
+// Footer
+export const FooterContainer = styled.footer`
+  grid-area: footer;
+  display: flex;
+  flex-direction: row;
+  background: var(--bg-color);
+
+  .footer-ul {
+    right: 8px;
+    position: relative;
+    margin-top: 5px;
+  }
+`;
+
+// Hambuger
 export const StyledBurger = styled(motion.button)`
   position: absolute;
   top: 2%;

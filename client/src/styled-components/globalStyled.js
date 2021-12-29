@@ -9,11 +9,16 @@ export const GlobalStyles = createGlobalStyle`
     padding:0;
 }
 a {
-    list-style-type: none ;
     text-decoration: none ;
   }
 
+li {
+    list-style:none;
+  }
+
 html,body{
+  width: 100%;
+	height: 100%;
     background:var(--bg-color);
     font-family:var(--primary-font);
 }
@@ -26,10 +31,15 @@ html,body{
     --white-color:#fff;
     --data-suvery-color: #7796FE;
     --primary-font: 'Nunito', sans-serif;
+    --secondary-font :'Gorditas', cursive;
     --border-radius: 10px;
     --drop-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
     --text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     --span-text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    --font-size-sm:18px;
+    --font-size-md: 30px;
+    --margin-left-5: 5px;
+
    
   
 }
@@ -54,22 +64,39 @@ export const theme = {
   flexDirectionRow: "row",
   bottom: "10rem",
   marginTop: "10px",
+  marginLeft: "0",
+  paddingTop: "1rem",
 };
 
 // Containers
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 0.2fr 0.2fr 0.5fr 0.5fr;
+  grid-template-rows: auto 0.4fr 1fr auto;
   grid-template-areas:
-    "nav nav nav nav"
-    "main main main main"
-    "content content content content"
-    "footer footer footer footer";
+    "nav nav"
+    "main main"
+    "content content "
+    "footer footer";
+  grid-template-columns: 100%;
   grid-gap: 0.2rem;
   transition: all 0.25s ease-in-out;
-  max-width: 1000px;
   margin: 0 auto;
+  max-width: 1000px;
+  min-height: 100%;
   padding: 0;
+  .nav-brand {
+    margin-left: 10px;
+  }
+
+  ${MediaQueries("laptop")`
+  grid-template-columns: 100%;
+  grid-template-rows: 0.35fr auto 1fr auto;
+  grid-template-areas:
+  "nav"
+  "main"
+  "content "
+  "footer";
+ `}
 `;
 
 // Headings/ Paragraphs/ Span
@@ -91,11 +118,17 @@ export const H2 = styled.h2`
   color: ${(props) => props.theme.primaryColor};
 `;
 
+export const GorditasH2 = styled(H2)`
+  text-shadow: none !important;
+  font-family: var(--secondary-font);
+  margin-left: ${(props) => props.theme.marginLeft};
+`;
+
 export const Paragraph = styled.p`
   color: ${(props) => props.theme.primaryColor};
   font-weight: ${(props) => props.theme.fontWeightRegular};
   font-size: ${(props) => props.theme.fontSizeMD};
-  padding-top: 1rem;
+  padding-top: ${(props) => props.theme.paddingTop};
   margin-left: 0.5rem;
 `;
 
