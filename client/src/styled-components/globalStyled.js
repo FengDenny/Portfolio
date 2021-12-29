@@ -101,7 +101,7 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
-  grid-template-rows: 0.18fr 0.3fr 1fr auto;
+  grid-template-rows: 0.15fr 0.2fr 1fr auto;
  `}
 `;
 
