@@ -37,8 +37,10 @@ html,body{
     --text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     --span-text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     --font-size-sm:18px;
+    --font-size-mobile: 14px;
     --font-size-md: 30px;
     --margin-left-5: 5px;
+    --width-100:100%;
 
    
   
@@ -71,7 +73,7 @@ export const theme = {
 // Containers
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: auto 0.2fr 1fr auto;
+  grid-template-rows: auto 0.4fr 1fr auto;
   grid-template-areas:
     "nav nav"
     "main main"
@@ -97,6 +99,9 @@ export const Container = styled.div`
   "content "
   "footer";
  `}
+  ${MediaQueries("mobileL")`
+  max-width:1400px;
+ `}
 `;
 
 // Headings/ Paragraphs/ Span
@@ -109,7 +114,10 @@ export const HeroH1 = styled(H1)`
   text-shadow: var(--text-shadow);
 
   ${MediaQueries("laptop")`
-    font-size: 4.5em;
+    font-size: 3.5em;
+   `}
+  ${MediaQueries("mobileL")`
+   font-size:1.9em;
    `}
 `;
 export const H2 = styled.h2`
@@ -130,6 +138,13 @@ export const Paragraph = styled.p`
   font-size: ${(props) => props.theme.fontSizeMD};
   padding-top: ${(props) => props.theme.paddingTop};
   margin-left: 0.5rem;
+  ${MediaQueries("laptop")`
+    font-size: 25px;
+   `};
+
+  ${MediaQueries("mobileL")`
+   font-size:var(--font-size-sm);
+   `}
 `;
 
 export const Span = styled.span`
@@ -225,8 +240,13 @@ export const HeroCard = styled(motion.div)`
   padding: 27px;
 
   ${MediaQueries("laptop")`
-    width:calc(100vw - 89px);
+    width:700px;
     height: 100%
+   `}
+
+  ${MediaQueries("mobileL")`
+   padding: 39px;
+   margin-left: 8px;
    `}
 `;
 
@@ -263,7 +283,8 @@ export const StyledCard = styled(motion.div)`
   }
 
   ${MediaQueries("laptop")`
-  width: calc(100vw - 171px);
+  width: 490px;
+  padding: 29px;
     flex-direction:column;
 
     h2{
@@ -271,14 +292,49 @@ export const StyledCard = styled(motion.div)`
     }
 
     .odd{
-      width: calc(100vw - 262px); 
+      width: calc(100% + 3px);
     } 
     
     .even{
-      width: calc(100vw - 92px); 
-      position: relative;
-      right:109px;
+      width: calc(100% + 100px);
+      text-align: start;
+      position:relative;
+      right:30px
     } 
+   `}
+
+  ${MediaQueries("mobileL")`
+  width: 385px;
+
+  img{
+    width:350px;
+    margin-left:12px;
+  }
+
+
+  .even{
+    font-size:16px;
+    width: calc(100% + 61px);
+  }
+   `};
+  ${MediaQueries("mobileM")`
+  width: 350px;
+
+  img{
+    width:300px;
+    margin-left:12px;
+  }
+  .odd{
+    width: calc(100% + 16px);
+    font-size:14px;
+  } 
+  
+
+  .even{
+    font-size:16px;
+    width: calc(100% + 48px);
+    right:19px;
+  }
    `}
 `;
 
@@ -336,8 +392,15 @@ export const DiamondStyle = styled(motion.div)`
     background || "var(--secondary-color)"};
 
   ${MediaQueries("laptop")`
-      right:31px;
-   `}
+     left:67%
+   `};
+  ${MediaQueries("tablet")`
+     left:72%
+   `};
+
+  ${MediaQueries("mobileL")`
+     display:none ;
+   `};
 `;
 
 export const DiamondStyleTwo = styled(motion.div)`
@@ -353,6 +416,12 @@ export const DiamondStyleTwo = styled(motion.div)`
     background || "var(--secondary-color)"};
 
   ${MediaQueries("laptop")`
-    left:31px;
- `}
+    right:-10%;
+ `};
+  ${MediaQueries("tablet")`
+    right:-5%;
+ `};
+  ${MediaQueries("mobileL")`
+     display:none ;
+   `};
 `;

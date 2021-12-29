@@ -17,7 +17,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 20vh;
+  height: 0;
 `;
 // Content
 export const ProjectContent = styled(motion.section)`
@@ -25,6 +25,16 @@ export const ProjectContent = styled(motion.section)`
   flex-direction: column;
   position: relative;
   grid-area: content;
+
+  ${MediaQueries("mobileL")`
+    margin-top:38px;
+  }
+   `}
+
+  ${MediaQueries("mobileM")`
+    margin-top:85px;
+  }
+   `}
 `;
 
 // Navbar

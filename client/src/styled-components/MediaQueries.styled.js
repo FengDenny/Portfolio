@@ -11,5 +11,5 @@ const size = {
 };
 
 export const MediaQueries = (key) => {
-  return (style) => `@media (max-width: ${size[key]}){${style}}`;
+  return (style) => `@media screen and  (max-width: ${size[key]}){${style}}`;
 };
