@@ -17,7 +17,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 50vh;
+  height: 20vh;
 `;
 // Content
 export const ProjectContent = styled(motion.section)`
