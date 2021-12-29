@@ -101,6 +101,7 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
+  grid-template-rows: 0.3fr auto 1fr auto;
  `}
 `;
 
