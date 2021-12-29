@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.6c097b00.js",
+    "main.js": "/static/js/main.6bc323a2.js",
     "static/js/787.9b9c0edf.chunk.js": "/static/js/787.9b9c0edf.chunk.js",
     "static/media/ProductScreenshots.pdf": "/static/media/ProductScreenshots.dafeed840db02e750666.pdf",
     "static/media/gatordash.png": "/static/media/gatordash.c78c1ebbce9bc4e283c1.png",
@@ -10,10 +10,10 @@
     "static/media/Denny Resume.pdf": "/static/media/Denny Resume.acbd20d5d42127fb8ee9.pdf",
     "static/media/knewlys.png": "/static/media/knewlys.ee136a3d02549e7f5895.png",
     "index.html": "/index.html",
-    "main.6c097b00.js.map": "/static/js/main.6c097b00.js.map",
+    "main.6bc323a2.js.map": "/static/js/main.6bc323a2.js.map",
     "787.9b9c0edf.chunk.js.map": "/static/js/787.9b9c0edf.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.6c097b00.js"
+    "static/js/main.6bc323a2.js"
   ]
 }
