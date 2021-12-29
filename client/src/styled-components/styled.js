@@ -57,7 +57,7 @@ export const NavbarContainer = styled.nav`
 
 export const NavbarLogo = styled.img`
   width: auto;
-  height: 30px;
+  height: 64px;
   cursor: pointer;
 `;
 export const NavLink = styled.a`
