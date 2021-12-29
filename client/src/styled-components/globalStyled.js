@@ -71,7 +71,7 @@ export const theme = {
 // Containers
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: auto 0.4fr 1fr auto;
+  grid-template-rows: auto 0.2fr 1fr auto;
   grid-template-areas:
     "nav nav"
     "main main"
