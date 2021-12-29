@@ -19,7 +19,7 @@ export default function Navbar() {
   return (
     <ThemeProvider theme={theme}>
       <NavbarContainer ref={node}>
-        <div>
+        <div className='nav-brand'>
           <NavbarLogo src={NavLogo} alt='DF' onClick={() => navigate("/#")} />
         </div>
         <NavBurger open={open} setOpen={setOpen} />
