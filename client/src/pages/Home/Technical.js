@@ -32,7 +32,7 @@ export default function Technical() {
               primaryColor: "var(--primary-color)",
               fontWeight: "200",
               fontSizeMD: "var(--font-size-sm)",
-              marginRight: "12rem",
+              marginRight: "16rem",
             }}
             pmobile
           >
