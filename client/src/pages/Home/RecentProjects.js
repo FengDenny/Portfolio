@@ -1,5 +1,8 @@
 import React from "react";
-import { ProjectContent } from "../../styled-components/styled";
+import {
+  ProjectContent,
+  TechnicalContent,
+} from "../../styled-components/styled";
 import {
   HRLine,
   H2,
