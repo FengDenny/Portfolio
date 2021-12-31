@@ -7,12 +7,16 @@ import {
   HeroCardContainer,
   CardButton,
   DisplayFlexCenter,
+  DisplayFlexRow,
+  PositionAbsolute,
+  ProjectLink,
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
 import {
   cardVariants,
   rotateVariants,
 } from "../../components/Variants/Variants";
+import { FaGithub, FaFigma } from "react-icons/fa";
 
 export default function Card({
   project: { id, title, description, demo, github, figma, image },
@@ -102,6 +106,64 @@ export default function Card({
                 Demo
               </CardButton>
             </MarginTop>
+            <DisplayFlexRow>
+              <PositionAbsolute
+                theme={
+                  id === 2 || id === 4
+                    ? {
+                        bottom: " 0.5rem",
+                        left: " 28rem",
+                      }
+                    : {
+                        bottom: " 0.5rem",
+                        left: " 23rem",
+                      }
+                }
+              >
+                <ProjectLink
+                  href={`${github}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  color={
+                    id === 2
+                      ? "var( --data-suvery-color)"
+                      : id === 4
+                      ? "var(--secondary-color)"
+                      : undefined
+                  }
+                  hovercolor={
+                    id === 2
+                      ? "var( --data-suvery-color-hover)"
+                      : id === 4
+                      ? "var(--secondary-color-hover)"
+                      : undefined
+                  }
+                >
+                  <FaGithub />
+                </ProjectLink>
+                <ProjectLink
+                  href={`${figma}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  color={
+                    id === 2
+                      ? "var( --data-suvery-color)"
+                      : id === 4
+                      ? "var(--secondary-color)"
+                      : undefined
+                  }
+                  hovercolor={
+                    id === 2
+                      ? "var( --data-suvery-color-hover)"
+                      : id === 4
+                      ? "var(--secondary-color-hover)"
+                      : undefined
+                  }
+                >
+                  <FaFigma />
+                </ProjectLink>
+              </PositionAbsolute>
+            </DisplayFlexRow>
           </div>
           <DisplayFlexCenter>
             <img
