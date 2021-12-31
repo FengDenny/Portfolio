@@ -39,6 +39,9 @@ html,body{
     --font-size-sm:18px;
     --font-size-mobile: 14px;
     --font-size-md: 30px;
+    --font-size-lg: 48px;
+    --font-size-22: 22px;
+    --font-size-40:40px;
     --margin-left-5: 5px;
     --width-100:100%;
 
@@ -65,19 +68,25 @@ export const theme = {
   flexDirection: "column",
   flexDirectionRow: "row",
   bottom: "10rem",
+  right: "0",
+  left: "0",
+  top: "0",
   marginTop: "10px",
   marginLeft: "0",
+  marginLeftSM: "0.5rem",
+  marginRight: "0",
   paddingTop: "1rem",
 };
 
 // Containers
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: auto 0.4fr 1fr auto;
+  grid-template-rows: auto 0.45fr 1fr auto auto;
   grid-template-areas:
     "nav nav"
     "main main"
-    "content content "
+    "project project "
+    "technical technical"
     "footer footer";
   grid-template-columns: 100%;
   grid-gap: 0.2rem;
@@ -92,17 +101,36 @@ export const Container = styled.div`
 
   ${MediaQueries("laptop")`
   grid-template-columns: 100%;
-  grid-template-rows: 0.35fr auto 1fr auto;
+  grid-template-rows: 0.35fr auto 1fr auto auto;
   grid-template-areas:
   "nav"
   "main"
-  "content "
+  "project "
+  "technical"
   "footer";
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
   grid-template-rows: 0.1fr 0.2fr 1fr auto;
  `}
+`;
+
+export const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 261px 469px 144px;
+  grid-gap: 1rem;
+  justify-content: space-evenly;
+  padding-top: 3rem;
+  transition: all 1s;
+  ${MediaQueries("laptop")`
+  display:flex;
+  flex-direction: column;
+`};
+`;
+
+export const GridContainerRow = styled.div`
+  display: grid;
+  grid-template-rows: repeat(3, minmax(171px, 1fr));
 `;
 
 // Headings/ Paragraphs/ Span
@@ -125,6 +153,25 @@ export const H2 = styled.h2`
   font-size: ${(props) => props.theme.fontSizeMD};
   text-shadow: var(--text-shadow);
   color: ${(props) => props.theme.primaryColor};
+  ${(props) =>
+    props.mobile &&
+    MediaQueries("mobileL")`
+    font-size:var(--font-size-mobile)
+    `}
+
+  ${(props) =>
+    props.header &&
+    MediaQueries("laptop")`
+      width: 32rem;
+      font-size:var( --font-size-40)
+      `} 
+      
+  ${(props) =>
+    props.header &&
+    MediaQueries("mobileL")`
+    font-size:30px;
+    width: 22rem;
+    `}
 `;
 
 export const GorditasH2 = styled(H2)`
@@ -138,7 +185,8 @@ export const Paragraph = styled.p`
   font-weight: ${(props) => props.theme.fontWeightRegular};
   font-size: ${(props) => props.theme.fontSizeMD};
   padding-top: ${(props) => props.theme.paddingTop};
-  margin-left: 0.5rem;
+  margin-left: ${(props) => props.theme.marginLeftSM};
+  margin-right: ${(props) => props.theme.marginRight};
   ${MediaQueries("laptop")`
     font-size: 25px;
    `};
@@ -148,10 +196,40 @@ export const Paragraph = styled.p`
    `}
 `;
 
+export const ParagraphSM = styled(Paragraph)`
+  ${MediaQueries("laptop")`
+font-size:var(--font-size-sm);
+`};
+  ${(props) =>
+    props.pmobile &&
+    MediaQueries("laptop")`
+  margin-right: 2rem;
+  margin-left: 0.7rem;
+  margin-top: 0.5rem;
+  line-height: 27px;
+     width: 30rem;
+  `}
+
+  ${(props) =>
+    props.pmobile &&
+    MediaQueries("mobileL")`
+    margin-right: 3rem;
+    margin-left: 2.3rem;
+    margin-top: 0.5rem;
+    line-height: 27px;
+    width: 21rem;
+  `}
+`;
+
 export const Span = styled.span`
   color: ${(props) => props.theme.secondaryColor};
   text-shadow: var(--span-text-shadow);
   font-weight: ${(props) => props.theme.fontWeight};
+`;
+
+export const FaSpan = styled.span`
+  color: ${(props) => props.theme.secondaryColor};
+  font-size: ${(props) => props.theme.fontSizeMD};
 `;
 
 // Button
@@ -180,9 +258,31 @@ export const ButtonPrimary = styled.button`
 `;
 
 // Positioning
-export const PositionBottomRelative = styled.div`
+
+export const PositionRelative = styled.div`
   position: relative;
+  top: ${(props) => props.theme.top};
   bottom: ${(props) => props.theme.bottom};
+  right: ${(props) => props.theme.right};
+  left: ${(props) => props.theme.left};
+
+  ${(props) =>
+    props.description &&
+    MediaQueries("mobileL")`
+    top:0.3rem;
+  `}
+`;
+
+export const PositionRelativeMQ = styled.div`
+  ${MediaQueries("laptop")`
+bottom: 7rem;
+left: 6rem;
+position: relative;
+`}
+
+  ${MediaQueries("mobileL")`
+left: 3rem;
+`}
 `;
 
 export const MarginTop = styled(motion.div)`
@@ -191,9 +291,16 @@ export const MarginTop = styled(motion.div)`
 `;
 
 // Flex
+
 export const DisplayFlex = styled.div`
   display: flex;
   flex-direction: ${(props) => props.theme.flexDirection};
+`;
+
+export const Article = styled.article`
+  ${MediaQueries("laptop")`
+  display:flex;
+  `}
 `;
 
 export const DisplayFlexRow = styled.div`
@@ -425,4 +532,46 @@ export const DiamondStyleTwo = styled(motion.div)`
   ${MediaQueries("mobileL")`
      display:none ;
    `};
+`;
+
+// Technical
+
+export const TechnicalContainer = styled(HeroCardContainer)`
+  flex-direction: column;
+  height: 74rem;
+`;
+
+export const Circles = styled.div`
+  background: var(--white-color);
+  border-radius: 50%;
+  height: 125px;
+  width: 125px;
+  margin-top: 1rem;
+  box-shadow: var(--drop-shadow);
+
+  ${MediaQueries("laptop")`
+  margin: 2rem;
+  `}
+
+  ${MediaQueries("mobileL")`
+   margin: 0.5rem;
+   width:100px;
+   height:100px;
+   position:relative;
+   right:10px;
+  `}
+`;
+export const CardImage = styled.img`
+  width: ${({ width }) => width || "4.5rem"};
+  height: auto;
+  align-items: center;
+  margin-top: 1.5rem;
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("mobileL")`
+   width:4.2rem;
+  `
+      : MediaQueries("mobileL")`
+  width:3.8rem;
+ `}
 `;
