@@ -24,7 +24,7 @@ export const ProjectContent = styled(motion.section)`
   display: flex;
   flex-direction: column;
   position: relative;
-  grid-area: content;
+  grid-area: project;
 
   // ${MediaQueries("mobileL")`
   //   margin-top:38px;
@@ -35,6 +35,10 @@ export const ProjectContent = styled(motion.section)`
     margin-top:127px;
   }
    `}
+`;
+
+export const TechnicalContent = styled(motion.section)`
+  grid-area: technical;
 `;
 
 // Navbar
