@@ -161,6 +161,12 @@ export const H2 = styled.h2`
 
   ${(props) =>
     props.header &&
+    MediaQueries("desktop")`
+    width: 67rem;
+      `}  
+      
+      ${(props) =>
+    props.header &&
     MediaQueries("laptop")`
       width: 32rem;
       font-size:var( --font-size-40)
@@ -197,6 +203,7 @@ export const Paragraph = styled.p`
 `;
 
 export const ParagraphSM = styled(Paragraph)`
+  margin-top: 0.5rem;
   ${MediaQueries("laptop")`
 font-size:var(--font-size-sm);
 `};
