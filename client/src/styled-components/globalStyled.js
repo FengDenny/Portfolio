@@ -28,8 +28,11 @@ html,body{
     --primary-color: #333333;
     --primary-color-hover: #2E2E2E;
     --secondary-color: #0B95AB;  
+    --secondary-color-hover: #097283;  
     --white-color:#fff;
+    --white-hover: #EAEAEA;
     --data-suvery-color: #7796FE;
+    --data-suvery-color-hover: #4E65B5;
     --primary-font: 'Nunito', sans-serif;
     --secondary-font :'Gorditas', cursive;
     --border-radius: 10px;
@@ -279,6 +282,27 @@ export const PositionRelative = styled.div`
     top:0.3rem;
   `}
 `;
+export const PositionAbsolute = styled.div`
+  position: absolute;
+  top: ${(props) => props.theme.top};
+  bottom: ${(props) => props.theme.bottom};
+  right: ${(props) => props.theme.right};
+  left: ${(props) => props.theme.left};
+
+  ${MediaQueries("laptop")`
+  bottom: 0.5rem;
+  left: 11rem;
+ `}
+
+  ${MediaQueries("mobileL")`
+  bottom: 0.5rem;
+  left: 9rem;
+ `}
+ ${MediaQueries("mobileM")`
+  bottom: 0.5rem;
+  left: 8rem;
+ `}
+`;
 
 export const PositionRelativeMQ = styled.div`
   ${MediaQueries("laptop")`
@@ -399,7 +423,7 @@ export const StyledCard = styled(motion.div)`
 
   ${MediaQueries("laptop")`
   width: 490px;
-  padding: 29px;
+  padding: 55px;
     flex-direction:column;
 
     h2{
@@ -414,7 +438,8 @@ export const StyledCard = styled(motion.div)`
       width: calc(100% + 100px);
       text-align: start;
       position:relative;
-      right:30px
+      right:30px;
+      padding: 13px !important;
     } 
    `}
 
@@ -428,7 +453,7 @@ export const StyledCard = styled(motion.div)`
 
 
   .even{
-    font-size:16px;
+    font-size:14px;
     width: calc(100% + 61px);
   }
    `};
@@ -446,7 +471,6 @@ export const StyledCard = styled(motion.div)`
   
 
   .even{
-    font-size:16px;
     width: calc(100% + 48px);
     right:19px;
   }
@@ -490,6 +514,19 @@ export const HeroLink = styled.a`
   top: 5px;
   :hover {
     color: var(--secondary-color);
+  }
+`;
+export const ProjectLink = styled.a`
+  position: relative;
+  font-size: ${(props) => props.theme.fontSizeMD};
+  color: ${({ color }) => color || "#fff"};
+  font-weight: ${(props) => props.theme.fontWeight};
+  padding: 1rem;
+  width: 70px;
+  top: 5px;
+
+  :hover {
+    color: ${({ hovercolor }) => hovercolor || "var(--white-hover)"};
   }
 `;
 
