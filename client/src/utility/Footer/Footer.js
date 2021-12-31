@@ -25,7 +25,12 @@ export default function Footer() {
             >
               © 2021 Denny Feng
             </GorditasH2>
-            <Paragraph theme={{ fontSizeMD: "var(--font-size-sm)" }}>
+            <Paragraph
+              theme={{
+                fontSizeMD: "var(--font-size-sm)",
+                marginLeftSM: "0.5rem",
+              }}
+            >
               Made with passion and a warm cup of coffee.
             </Paragraph>
             <ul className='footer-ul'>
