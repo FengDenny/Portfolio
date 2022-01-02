@@ -104,7 +104,7 @@ export const Container = styled.div`
 
   ${MediaQueries("laptop")`
   grid-template-columns: 100%;
-  grid-template-rows: 0.35fr auto 1fr auto auto;
+  grid-template-rows: auto 0.25fr 1fr auto auto auto;
   grid-template-areas:
   "nav"
   "main"
@@ -114,7 +114,7 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
-  grid-template-rows: 0.1fr 0.2fr 1fr auto;
+  grid-template-rows: auto 0.25fr 1fr auto auto;
  `}
 `;
 

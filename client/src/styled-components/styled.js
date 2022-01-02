@@ -17,7 +17,11 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 20vh;
+  height: 45%;
+
+  ${MediaQueries("laptop")`
+  height: 55%;
+`};
 `;
 // Content
 export const ProjectContent = styled(motion.section)`
