@@ -379,13 +379,19 @@ export const HeroCard = styled(motion.div)`
   padding: 27px;
 
   ${MediaQueries("laptop")`
-    width:700px;
-    height: 100%
+  width: 35rem;
+    height: 100%;
    `}
 
   ${MediaQueries("mobileL")`
+  width:23rem;
    padding: 39px;
    margin-left: 8px;
+   `}
+  ${MediaQueries("mobileM")`
+  width:21rem;
+   padding: 30px;
+
    `}
 `;
 
