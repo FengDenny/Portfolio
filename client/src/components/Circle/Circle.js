@@ -14,16 +14,22 @@ import {
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
 import { FaRegCheckSquare } from "react-icons/fa";
+import { container, item } from "../../components/Variants/Variants";
 
 export default function Circle({ technical: { front, description, back } }) {
   return (
     <ThemeProvider theme={theme}>
-      <Article>
+      <Article
+        variants={container}
+        initial='offscreen'
+        whileInView='onscreen'
+        viewport={{ once: true, amount: 1 }}
+      >
         {front &&
           front.map((front) => {
             const { id, title, image } = front;
             return (
-              <Circles key={id}>
+              <Circles key={id} variants={item}>
                 <DisplayFlexCenter>
                   <CardImage
                     src={require(`../../images/logos/${image}`)}
@@ -40,7 +46,7 @@ export default function Circle({ technical: { front, description, back } }) {
               <PositionRelative theme={{ top: "8rem", right: "2rem" }}>
                 <PositionRelativeMQ>
                   <DisplayFlex>
-                    <DisplayFlexRow>
+                    <DisplayFlexRow variants={item}>
                       <FaSpan>
                         <FaRegCheckSquare />
                       </FaSpan>
@@ -57,7 +63,7 @@ export default function Circle({ technical: { front, description, back } }) {
                       </PositionRelative>
                     </DisplayFlexRow>
 
-                    <DisplayFlexRow>
+                    <DisplayFlexRow variants={item}>
                       <FaSpan>
                         <FaRegCheckSquare />
                       </FaSpan>
@@ -73,7 +79,7 @@ export default function Circle({ technical: { front, description, back } }) {
                         </H2>
                       </PositionRelative>
                     </DisplayFlexRow>
-                    <DisplayFlexRow>
+                    <DisplayFlexRow variants={item}>
                       <FaSpan>
                         <FaRegCheckSquare />
                       </FaSpan>
@@ -99,7 +105,7 @@ export default function Circle({ technical: { front, description, back } }) {
           back.map((back) => {
             const { id, title, image } = back;
             return (
-              <Circles key={id}>
+              <Circles key={id} variants={item}>
                 <DisplayFlexCenter>
                   {id === 2 || id === 3 ? (
                     <PositionRelative theme={{ top: "1.2rem" }}>

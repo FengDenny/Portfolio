@@ -29,3 +29,24 @@ export const rotateVariants = {
     },
   },
 };
+
+// Technical
+export const container = {
+  offscreen: { opacity: 1, scale: 0 },
+  onscreen: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+export const item = {
+  offscreen: { y: 20, opacity: 0 },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+  },
+};

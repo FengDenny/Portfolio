@@ -323,18 +323,18 @@ export const MarginTop = styled(motion.div)`
 
 // Flex
 
-export const DisplayFlex = styled.div`
+export const DisplayFlex = styled(motion.div)`
   display: flex;
   flex-direction: ${(props) => props.theme.flexDirection};
 `;
 
-export const Article = styled.article`
+export const Article = styled(motion.article)`
   ${MediaQueries("laptop")`
   display:flex;
   `}
 `;
 
-export const DisplayFlexRow = styled.div`
+export const DisplayFlexRow = styled(motion.div)`
   display: flex;
   flex-direction: ${(props) => props.theme.flexDirectionRow};
 `;
@@ -591,7 +591,7 @@ export const TechnicalContainer = styled(HeroCardContainer)`
   height: 74rem;
 `;
 
-export const Circles = styled.div`
+export const Circles = styled(motion.div)`
   background: var(--white-color);
   border-radius: 50%;
   height: 125px;
