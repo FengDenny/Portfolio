@@ -10,7 +10,7 @@ import {
   GridContainer,
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
-import Circle from "../../components/Circle/Circle";
+import Circle from "../../components/Technical/layout";
 import { technical } from "../../data/technical";
 
 export default function Technical() {

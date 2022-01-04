@@ -14,7 +14,7 @@ import {
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
 import { FaRegCheckSquare } from "react-icons/fa";
-import { container, item } from "../../components/Variants/Variants";
+import { container, item } from "../Variants/Variants";
 
 export default function Circle({ technical: { front, description, back } }) {
   return (
