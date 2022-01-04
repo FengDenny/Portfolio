@@ -10,7 +10,7 @@ import {
   GridContainer,
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
-import Circle from "../../components/Technical/layout";
+import TechnicalLayout from "../../components/Technical/layout";
 import { technical } from "../../data/technical";
 
 export default function Technical() {
@@ -41,7 +41,7 @@ export default function Technical() {
           </ParagraphSM>
           <GridContainer>
             {technical.map((technical, id) => (
-              <Circle technical={technical} key={id} />
+              <TechnicalLayout technical={technical} key={id} />
             ))}
           </GridContainer>
         </TechnicalContainer>
