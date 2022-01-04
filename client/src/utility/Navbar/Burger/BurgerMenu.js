@@ -8,7 +8,35 @@ import {
 } from "../../../styled-components/styled";
 import ResumePDF from "../../../data/Denny Resume.pdf";
 import { AnimatePresence } from "framer-motion";
+import { HashLink } from "react-router-hash-link";
 export default function BurgerMenu({ open = false, closeNavMenu }) {
+  const NavLinks = () => {
+    return (
+      <>
+        <li>
+          <NavLink href='#about'>About</NavLink>
+        </li>
+        <li>
+          <NavLink href={"/#portfolio"}>Portfolio</NavLink>
+        </li>
+        <li>
+          <NavLink href='#services'>Services</NavLink>
+        </li>
+        <li>
+          <NavLink href='#'>Contact</NavLink>
+        </li>
+
+        <ButtonPrimary
+          onClick={() =>
+            window.open(ResumePDF, "_blank", "noopener", "noreferrer")
+          }
+        >
+          Resume
+        </ButtonPrimary>
+      </>
+    );
+  };
+
   return (
     <AnimatePresence>
       {open ? (
@@ -23,38 +51,12 @@ export default function BurgerMenu({ open = false, closeNavMenu }) {
           transition={{ type: "spring", bounce: 0, duration: 0.4 }}
         >
           <Nav onClick={() => closeNavMenu()}>
-            <li>
-              <NavLink href='about'>About</NavLink>
-            </li>
-            <NavLink href='#'>Contact</NavLink>
-            <ButtonPrimary
-              onClick={() =>
-                window.open(ResumePDF, "_blank", "noopener", "noreferrer")
-              }
-            >
-              Resume
-            </ButtonPrimary>
+            <NavLinks />
           </Nav>
         </StyledMenu>
       ) : (
         <NavDesktop>
-          <li>
-            <NavLink href='/#/about'>About</NavLink>
-          </li>
-
-          <li>
-            <NavLink href='#'>Contact</NavLink>
-          </li>
-
-          <li>
-            <ButtonPrimary
-              onClick={() =>
-                window.open(ResumePDF, "_blank", "noopener", "noreferrer")
-              }
-            >
-              Resume
-            </ButtonPrimary>
-          </li>
+          <NavLinks />
         </NavDesktop>
       )}
     </AnimatePresence>

@@ -23,7 +23,7 @@ import { motion } from "framer-motion";
 export default function RecentProjects() {
   return (
     <ThemeProvider theme={theme}>
-      <ProjectContent>
+      <ProjectContent id='portfolio'>
         <CardContainer>
           <H2>Recent Projects</H2>
           <HRLine theme={{ width: "220px" }} />
