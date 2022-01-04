@@ -12,10 +12,7 @@ import {
   ProjectLink,
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
-import {
-  cardVariants,
-  rotateVariants,
-} from "../../components/Variants/Variants";
+import { cardVariants, rotateVariants } from "../Variants/Variants";
 import { FaGithub, FaFigma } from "react-icons/fa";
 
 export default function Card({

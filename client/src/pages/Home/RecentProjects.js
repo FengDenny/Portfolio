@@ -12,7 +12,7 @@ import {
   DiamondStyle,
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
-import Card from "../../components/Card/Card";
+import Card from "../../components/RecentProjects/CardLayout";
 import { project } from "../../data/project";
 import {
   cardVariants,
