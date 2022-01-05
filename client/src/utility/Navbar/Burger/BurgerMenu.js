@@ -4,6 +4,7 @@ import {
   NavLink,
   StyledMenu,
   Nav,
+  NavLI,
   NavDesktop,
 } from "../../../styled-components/styled";
 import ResumePDF from "../../../data/Denny Resume.pdf";
@@ -12,18 +13,18 @@ export default function BurgerMenu({ open = false, closeNavMenu }) {
   const NavLinks = () => {
     return (
       <>
-        <li>
+        <NavLI>
           <NavLink href='/#about'>About</NavLink>
-        </li>
-        <li>
+        </NavLI>
+        <NavLI>
           <NavLink href='/#portfolio'>Portfolio</NavLink>
-        </li>
-        <li>
+        </NavLI>
+        <NavLI>
           <NavLink href='/#services'>Services</NavLink>
-        </li>
-        <li>
+        </NavLI>
+        <NavLI>
           <NavLink href='/#contact'>Contact</NavLink>
-        </li>
+        </NavLI>
 
         <ButtonPrimary
           onClick={() =>

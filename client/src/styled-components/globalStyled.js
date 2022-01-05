@@ -125,7 +125,7 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
-  grid-template-rows:  auto 0.27fr 0.20fr 1fr auto auto auto;
+  grid-template-rows:  0.1fr 0.40fr 0.20fr 1fr auto auto auto;
  `}
 `;
 
@@ -255,7 +255,8 @@ font-size:var(--font-size-sm);
   ${(props) =>
     props.amobile &&
     MediaQueries("mobileL")`
-    width: 21rem;
+    width: calc(10px + 85%);
+    margin-top:3rem;
   `}
   ${(props) =>
     props.card &&
@@ -419,6 +420,7 @@ export const MobileContainer = styled(motion.div)`
     justify-content: center;
     flex-direction: column;
     position: relative;
+    right:0.5rem;
 `
       : null}
 `;

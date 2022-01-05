@@ -121,9 +121,10 @@ export const AboutContent = styled(motion.div)`
 `};
 
   ${MediaQueries("mobileL")`
+  margin-top:2rem;
   .about-card {
-    width: 23rem;
-    margin-right: 2.8rem;
+   left:0;
+   width:23rem
   }
 `};
 `;
@@ -156,11 +157,17 @@ export const Nav = styled.nav`
   position: relative;
   ${MediaQueries("laptop")`
   right:40px;
-  top:30px;
+  top:3.5rem;
   display: flex;
 flex-direction: column;
 `}
 `;
+export const NavLI = styled.li`
+  ${MediaQueries("laptop")`
+margin-top:10px;
+`}
+`;
+
 export const NavDesktop = styled.ul`
   position: relative;
   display: flex;
@@ -191,6 +198,7 @@ export const NavLink = styled.a`
   color: ${(props) => props.theme.primaryColor};
   font-weight: ${(props) => props.theme.fontWeight};
   padding: 1rem;
+
   top: 5px;
   :hover {
     text-decoration: underline;
@@ -199,6 +207,10 @@ export const NavLink = styled.a`
   :active {
     text-decoration: underline;
   }
+
+  ${MediaQueries("laptop")`
+  top: 0px;
+`}
 `;
 
 // Footer
@@ -218,7 +230,7 @@ export const FooterContainer = styled.footer`
 // Hambuger
 export const StyledBurger = styled(motion.button)`
   position: absolute;
-  top: 2%;
+  top: 1.8rem;
   right: 2rem;
   display: none;
   justify-content: space-around;
