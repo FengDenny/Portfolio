@@ -113,7 +113,7 @@ export const Container = styled.div`
 
   ${MediaQueries("laptop")`
   grid-template-columns: 100%;
-  grid-template-rows: auto 0.25fr auto 1fr auto auto auto;
+  grid-template-rows: auto 0.45fr auto 1fr auto auto auto;
   grid-template-areas:
   "nav"
   "main"
@@ -125,7 +125,7 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
-  grid-template-rows: auto 0.25fr 1fr auto auto;
+  grid-template-rows:  auto 0.25fr 0.35fr 1fr auto auto auto;
  `}
 `;
 
@@ -247,9 +247,15 @@ font-size:var(--font-size-sm);
   ${(props) =>
     props.amobile &&
     MediaQueries("laptop")`
-    right: 0.7rem;
+    left: 0;
     position: relative;
-    width:20rem;
+    width: 29rem;
+  `}
+  
+  ${(props) =>
+    props.amobile &&
+    MediaQueries("mobileL")`
+    width: 21rem;
   `}
   ${(props) =>
     props.card &&
