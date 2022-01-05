@@ -16,7 +16,7 @@ import { technical } from "../../data/technical";
 export default function Technical() {
   return (
     <ThemeProvider theme={theme}>
-      <TechnicalContent>
+      <TechnicalContent id='services'>
         <TechnicalContainer>
           <H2
             theme={{
