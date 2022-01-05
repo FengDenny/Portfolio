@@ -125,6 +125,10 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
+  grid-template-rows:  0.1fr 0.15fr 0.20fr 1fr auto auto auto;
+ `} 
+  ${MediaQueries("mobileM")`
+
   grid-template-rows:  0.1fr 0.40fr 0.20fr 1fr auto auto auto;
  `}
 `;
@@ -247,15 +251,18 @@ font-size:var(--font-size-sm);
   ${(props) =>
     props.amobile &&
     MediaQueries("laptop")`
-    left: 0;
+    margin-top:3rem;
+       left: 8rem;
     position: relative;
-    width: 29rem;
+    line-height: 46px;
+    width: calc(100% - 267px);
   `}
   
   ${(props) =>
     props.amobile &&
     MediaQueries("mobileL")`
     width: calc(10px + 85%);
+    left:0;
     margin-top:3rem;
   `}
   ${(props) =>

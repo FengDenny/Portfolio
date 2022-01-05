@@ -102,6 +102,7 @@ export const AboutContent = styled(motion.div)`
     }
   }
   ${MediaQueries("laptop")`
+  margin-top:2rem;
   .about-card {
     width:34rem;
     margin:auto;
