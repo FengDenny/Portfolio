@@ -118,9 +118,11 @@ export default function Card({
                 }
               >
                 <ProjectLink
-                  href={`${github}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  onClick={() =>
+                    window.open(github, "_blank", "noopener", "noreferrer")
+                  }
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   color={
                     id === 2
                       ? "var( --data-suvery-color)"
@@ -139,9 +141,11 @@ export default function Card({
                   <FaGithub />
                 </ProjectLink>
                 <ProjectLink
-                  href={`${figma}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  onClick={() =>
+                    window.open(figma, "_blank", "noopener", "noreferrer")
+                  }
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   color={
                     id === 2
                       ? "var( --data-suvery-color)"
