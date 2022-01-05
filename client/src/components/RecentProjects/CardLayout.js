@@ -135,17 +135,13 @@ export default function Card({
                       ? "var(--secondary-color-hover)"
                       : undefined
                   }
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
                 >
                   <FaGithub />
                 </ProjectLink>
                 <ProjectLink
-                  onClick={() =>
-                    window.open(figma, "_blank", "noopener", "noreferrer")
-                  }
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  href={`${figma}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
                   color={
                     id === 2
                       ? "var( --data-suvery-color)"

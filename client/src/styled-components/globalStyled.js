@@ -583,7 +583,7 @@ export const HeroLink = styled.a`
     color: var(--secondary-color);
   }
 `;
-export const ProjectLink = styled(motion.button)`
+export const ProjectLink = styled.a`
   position: relative;
   font-size: ${(props) => props.theme.fontSizeMD};
   color: ${({ color }) => color || "#fff"};
@@ -591,9 +591,7 @@ export const ProjectLink = styled(motion.button)`
   padding: 1rem;
   width: 70px;
   top: 5px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
+
   :hover {
     color: ${({ hovercolor }) => hovercolor || "var(--white-hover)"};
   }
