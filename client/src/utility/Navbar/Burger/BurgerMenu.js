@@ -8,22 +8,21 @@ import {
 } from "../../../styled-components/styled";
 import ResumePDF from "../../../data/Denny Resume.pdf";
 import { AnimatePresence } from "framer-motion";
-import { HashLink } from "react-router-hash-link";
 export default function BurgerMenu({ open = false, closeNavMenu }) {
   const NavLinks = () => {
     return (
       <>
         <li>
-          <NavLink href='#about'>About</NavLink>
+          <NavLink href='/#about'>About</NavLink>
         </li>
         <li>
-          <NavLink href={"/#portfolio"}>Portfolio</NavLink>
+          <NavLink href='/#portfolio'>Portfolio</NavLink>
         </li>
         <li>
-          <NavLink href='#services'>Services</NavLink>
+          <NavLink href='/#services'>Services</NavLink>
         </li>
         <li>
-          <NavLink href='#'>Contact</NavLink>
+          <NavLink href='/#contact'>Contact</NavLink>
         </li>
 
         <ButtonPrimary
