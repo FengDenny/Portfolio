@@ -123,7 +123,7 @@ export const AboutContent = styled(motion.div)`
   ${MediaQueries("mobileL")`
   .about-card {
     width: 23rem;
-    margin-right: 1.8rem;
+    margin-right: 2.8rem;
   }
 `};
 `;
