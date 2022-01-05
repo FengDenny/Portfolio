@@ -16,11 +16,16 @@ li {
     list-style:none;
   }
 
+html{
+    scroll-behavior: smooth;
+  }
+
 html,body{
   width: 100%;
 	height: 100%;
     background:var(--bg-color);
     font-family:var(--primary-font);
+
 }
 
 :root{
@@ -67,6 +72,8 @@ export const theme = {
   height: "100vh",
   justifyContent: "space-between",
   width: "120px",
+  width0: "0",
+  lineHeight: "0",
   buttonHeight: "30px",
   flexDirection: "column",
   flexDirectionRow: "row",
@@ -84,12 +91,14 @@ export const theme = {
 // Containers
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: auto 0.45fr 1fr auto auto;
+  grid-template-rows: auto 0.45fr auto 1fr auto auto auto;
   grid-template-areas:
     "nav nav"
     "main main"
+    "about about"
     "project project "
     "technical technical"
+    "contact contact"
     "footer footer";
   grid-template-columns: 100%;
   grid-gap: 0.2rem;
@@ -104,12 +113,14 @@ export const Container = styled.div`
 
   ${MediaQueries("laptop")`
   grid-template-columns: 100%;
-  grid-template-rows: auto 0.25fr 1fr auto auto auto;
+  grid-template-rows: auto 0.25fr auto 1fr auto auto auto;
   grid-template-areas:
   "nav"
   "main"
+  "about"
   "project "
   "technical"
+  "contact"
   "footer";
  `}
   ${MediaQueries("mobileL")`
@@ -207,9 +218,13 @@ export const Paragraph = styled.p`
 
 export const ParagraphSM = styled(Paragraph)`
   margin-top: 0.5rem;
+  width: ${(props) => props.theme.width0};
+  line-height: ${(props) => props.theme.lineHeight};
+
   ${MediaQueries("laptop")`
 font-size:var(--font-size-sm);
 `};
+
   ${(props) =>
     props.pmobile &&
     MediaQueries("laptop")`
@@ -228,6 +243,25 @@ font-size:var(--font-size-sm);
     margin-top: 0.5rem;
     line-height: 27px;
     width: 21rem;
+  `}
+  ${(props) =>
+    props.amobile &&
+    MediaQueries("laptop")`
+    right: 0.7rem;
+    position: relative;
+    width:20rem;
+  `}
+  ${(props) =>
+    props.card &&
+    MediaQueries("tablet")`
+    font-size:var(--font-size-mobile) !important;
+
+  `}
+  ${(props) =>
+    props.card &&
+    MediaQueries("mobileL")`
+    margin-left: 0rem;
+
   `}
 `;
 
@@ -337,6 +371,12 @@ export const Article = styled(motion.article)`
 export const DisplayFlexRow = styled(motion.div)`
   display: flex;
   flex-direction: ${(props) => props.theme.flexDirectionRow};
+
+  ${(props) =>
+    props.mobile &&
+    MediaQueries("laptop")`
+      flex-direction:column-reverse;
+  `}
 `;
 
 export const DisplayFlexCenter = styled.div`
@@ -362,6 +402,19 @@ export const HeroCardContainer = styled(motion.div)`
 
 export const CardContainer = styled(HeroCardContainer)`
   flex-direction: column;
+`;
+
+export const MobileContainer = styled(motion.div)`
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("laptop")`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+`
+      : null}
 `;
 
 export const HeroCard = styled(motion.div)`
@@ -598,18 +651,22 @@ export const Circles = styled(motion.div)`
   width: 125px;
   margin-top: 1rem;
   box-shadow: var(--drop-shadow);
-
+  overflow: ${(props) => (props.about ? "hidden" : undefined)};
   ${MediaQueries("laptop")`
   margin: 2rem;
-  `}
-
-  ${MediaQueries("mobileL")`
+  `} ${MediaQueries("mobileL")`
    margin: 0.5rem;
    width:100px;
    height:100px;
    position:relative;
    right:10px;
-  `}
+  `};
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("laptop")`
+   margin:auto;
+  `
+      : null}
 `;
 export const CardImage = styled.img`
   width: ${({ width }) => width || "4.5rem"};
@@ -624,4 +681,20 @@ export const CardImage = styled.img`
       : MediaQueries("mobileL")`
   width:3.8rem;
  `}
+`;
+export const Image = styled.img`
+  position: relative;
+  width: ${({ width }) => width || "4.5rem"};
+  height: auto;
+  align-items: center;
+  bottom: ${({ bottom }) => bottom || "14.5rem"};
+  left: ${({ left }) => left || "0.5rem"};
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("mobileL")`
+   width:19.2rem;
+  `
+      : MediaQueries("mobileL")`
+  width:3.8rem;
+ `};
 `;

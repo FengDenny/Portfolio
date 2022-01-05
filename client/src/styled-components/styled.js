@@ -23,6 +23,111 @@ export const Main = styled.main`
   height: 50%;
 `};
 `;
+
+// About
+export const AboutSection = styled(motion.section)`
+  position: relative;
+  grid-area: about;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: ${(props) => props.theme.marginLeftSM};
+
+  ${MediaQueries("laptop")`
+  margin:auto !important;
+`};
+`;
+
+export const AboutContent = styled(motion.div)`
+  margin-top: ${(props) => props.theme.marginTop};
+  .about-card {
+    width: 42rem;
+    height: 20rem;
+    border-radius: 10px;
+    background: var(--primary-color);
+    overflow: hidden;
+    box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+    display: flex;
+    flex-direction: column;
+
+    .underline {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--white-color);
+    }
+    nav {
+      background: var(--primary-color);
+      padding: 5px 5px 0;
+      height: 44px;
+    }
+    main {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 1rem;
+      padding: 10px;
+      font-size: var(--font-size-md);
+      color: var(--white-color);
+      flex-grow: 1;
+      user-select: none;
+    }
+
+    ul {
+      display: flex;
+    }
+
+    li {
+      padding: 10px 15px;
+      position: relative;
+      background: var(--primary-color);
+      color: var(--white-color);
+      cursor: pointer;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      position: relative;
+      user-select: none;
+      font-weight: bold;
+    }
+    span {
+      font-weight: normal;
+      font-size: 14px;
+      color: var(--secondary-color);
+    }
+  }
+  ${MediaQueries("laptop")`
+  .about-card {
+    width:34rem;
+    margin:auto;
+    position: relative;
+    left: 0.5rem;
+  }
+
+`};
+
+  ${MediaQueries("tablet")`
+  .about-card {
+    width:31rem;
+    margin:auto;
+    position: relative;
+    left: 0.5rem;
+  }
+`};
+
+  ${MediaQueries("mobileL")`
+  .about-card {
+    width: 23rem;
+    margin-right: 46px;
+  }
+`};
+`;
+
 // Content
 export const ProjectContent = styled(motion.section)`
   display: flex;
@@ -37,6 +142,7 @@ export const ProjectContent = styled(motion.section)`
 
   ${MediaQueries("mobileM")`
     margin-top:127px;
+
   }
    `}
 `;
