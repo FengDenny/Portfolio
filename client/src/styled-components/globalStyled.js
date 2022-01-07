@@ -41,7 +41,7 @@ html,body{
     --primary-font: 'Nunito', sans-serif;
     --secondary-font :'Gorditas', cursive;
     --border-radius: 10px;
-    --drop-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+    --drop-shadow: 2px 2px 10px 3px rgba(0,0,0,0.1);
     --text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     --span-text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     --font-size-sm:18px;
@@ -73,6 +73,7 @@ export const theme = {
   justifyContent: "space-between",
   width: "120px",
   width0: "0",
+  height0: "0",
   lineHeight: "0",
   buttonHeight: "30px",
   flexDirection: "column",
@@ -276,6 +277,15 @@ font-size:var(--font-size-sm);
     MediaQueries("mobileL")`
     margin-left: 0rem;
 
+  `}  
+  
+  ${(props) =>
+    props.contact &&
+    MediaQueries("mobileL")`
+    width: 20rem;
+    font-size: 14px;
+    margin-right: 46px;
+
   `}
 `;
 
@@ -347,9 +357,29 @@ export const PositionAbsolute = styled.div`
   left: 9rem;
  `}
  ${MediaQueries("mobileM")`
-  bottom: 0.5rem;
-  left: 8rem;
+ bottom: 0rem;
+ left: 7rem;
  `}
+`;
+export const PositionCenter = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  //   ${MediaQueries("laptop")`
+//   bottom: 0.5rem;
+//   left: 11rem;
+//  `}
+
+  //   ${MediaQueries("mobileL")`
+//   bottom: 0.5rem;
+//   left: 9rem;
+//  `}
+  //  ${MediaQueries("mobileM")`
+//   bottom: 0.5rem;
+//   left: 8rem;
+//  `}
 `;
 
 export const PositionRelativeMQ = styled.div`
@@ -393,9 +423,41 @@ export const DisplayFlexRow = styled(motion.div)`
   `}
 `;
 
+// grid
+
+export const GridTwo = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 11rem);
+  grid-gap: 14px;
+
+  ${MediaQueries("mobileL")`
+  grid-template-columns: repeat(2, 9rem);
+ `}
+`;
+
 export const DisplayFlexCenter = styled.div`
   display: flex;
   justify-content: center;
+`;
+export const JustifyContent = styled.div`
+  display: flex;
+  flex-direction: ${(props) => props.theme.flexDirectionRow};
+  justify-content: ${(props) => props.theme.justifyContent};
+
+  ${(props) =>
+    props.form
+      ? MediaQueries("laptop")`
+   margin-left:15px
+  `
+      : null}
+
+  ${(props) =>
+    props.form
+      ? MediaQueries("mobileL")`
+   margin-left:-5px
+  `
+      : null}
 `;
 
 // HR
@@ -405,6 +467,29 @@ export const HRLine = styled.hr`
 `;
 
 // Card
+
+export const Card = styled(motion.div)`
+  dispay: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 2px solid var(--primary-color);
+  background: var(--primary-color);
+  padding: 1rem;
+  width: ${(props) => props.theme.width};
+  height: ${(props) => props.theme.height};
+  position: relative;
+  box-shadow: var(--drop-shadow);
+
+  ${MediaQueries("laptop")`
+  width: 27rem;
+    right:1rem;
+ `}
+
+  ${MediaQueries("mobileL")`
+  width: 21rem;
+    right:2rem;
+ `}
+`;
 
 export const HeroCardContainer = styled(motion.div)`
   overflow: hidden;
@@ -428,6 +513,13 @@ export const MobileContainer = styled(motion.div)`
     flex-direction: column;
     position: relative;
     right:0.5rem;
+`
+      : null}
+
+  ${(props) =>
+    props.contact
+      ? MediaQueries("laptop")`
+    right:1.5rem;
 `
       : null}
 `;
@@ -671,7 +763,8 @@ export const Circles = styled(motion.div)`
   overflow: ${(props) => (props.about ? "hidden" : undefined)};
   ${MediaQueries("laptop")`
   margin: 2rem;
-  `} ${MediaQueries("mobileL")`
+  `};
+  ${MediaQueries("mobileL")`
    margin: 0.5rem;
    width:100px;
    height:100px;
@@ -714,4 +807,78 @@ export const Image = styled.img`
       : MediaQueries("mobileL")`
   width:3.8rem;
  `};
+`;
+
+export const FormTitle = styled.h2`
+  font-size: ${(props) => props.theme.fontSizeSM};
+  color: var(--white-color);
+  font-weight: ${(props) => props.theme.fontWeight};
+`;
+
+export const FormLabel = styled.label`
+  padding-top: 1rem;
+  font-size: ${(props) => props.theme.fontSizeSM};
+  color: var(--white-color);
+  font-weight: ${(props) => props.theme.fontWeight};
+  display: flex;
+  flex-direction: row;
+`;
+
+export const FormInput = styled.input`
+  width: ${(props) => props.theme.width};
+  height: ${(props) => props.theme.height};
+  font-size: ${(props) => props.theme.fontSizeMD};
+  border: 1px solid var(--white-color);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--white-color);
+  padding-left: 0.5rem;
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("mobileL")`
+   width:19rem;
+  `
+      : null};
+`;
+export const FormTextArea = styled.textarea`
+  width: ${(props) => props.theme.width};
+  height: ${(props) => props.theme.height};
+  font-size: ${(props) => props.theme.fontSizeMD};
+  border: 1px solid var(--white-color);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--white-color);
+  resize: none;
+  padding: 0.5rem;
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("mobileL")`
+   width:19rem;
+  `
+      : null};
+`;
+
+export const FormButton = styled.button`
+  width: ${(props) => props.theme.width};
+  height: ${(props) => props.theme.height};
+  background: var(--secondary-color);
+  box-shadow: var(--drop-shadow);
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+  color: var(--white-color);
+  font-size: ${(props) => props.theme.fontSizeSM};
+  font-weight: ${(props) => props.theme.fontWeight};
+
+  :hover {
+    background: var(--secondary-color-hover);
+    border: 1px solid var(--secondary-color-hover);
+  }
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("mobileL")`
+   width:19rem;
+  `
+      : null};
 `;

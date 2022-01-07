@@ -39,6 +39,15 @@ export const AboutSection = styled(motion.section)`
 `};
 `;
 
+// Contact
+
+export const ContactSection = styled(motion.section)`
+  margin-left: ${(props) => props.theme.marginLeftSM};
+  grid-area: contact;
+`;
+
+// Content
+
 export const AboutContent = styled(motion.div)`
   margin-top: ${(props) => props.theme.marginTop};
   .about-card {
@@ -129,8 +138,19 @@ export const AboutContent = styled(motion.div)`
   }
 `};
 `;
-
-// Content
+export const ContactContent = styled(motion.div)`
+  margin-top: ${(props) => props.theme.marginTop};
+  display: flex;
+  flex-direction: row;
+  .contact-header {
+    flex-grow: 0.5;
+  }
+  ${MediaQueries("laptop")`
+  flex-direction: column;
+  justfy-content:center;
+  align-items:center;
+`};
+`;
 export const ProjectContent = styled(motion.section)`
   display: flex;
   flex-direction: column;
