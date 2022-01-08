@@ -28,6 +28,16 @@ export default function ContactLayout({
     formButtonLabel,
     formTitle,
   },
+  first,
+  last,
+  email,
+  projectDescription,
+  handleSend,
+  setFirst,
+  setLast,
+  setEmail,
+  setProjectDescription,
+  form,
 }) {
   return (
     <ThemeProvider theme={theme}>
@@ -60,44 +70,16 @@ export default function ContactLayout({
             theme={{ justifyContent: "center", flexDirectionRow: "column" }}
             form={"true"}
           >
-            <FormTitle theme={{ fontSizeMD: "var(--font-size-sm)" }}>
-              {formTitle}
-            </FormTitle>
-
-            <GridTwo>
-              {formNameLabel &&
-                formNameLabel.map((item) => {
-                  const { id, label } = item;
-                  return (
-                    <DisplayFlex theme={{ flexDirection: "column" }} key={id}>
-                      <FormLabel
-                        htmlFor={label}
-                        theme={{ fontWeight: "200", fontSizeSM: "16px" }}
-                      >
-                        {label}
-                        <Span>*</Span>
-                      </FormLabel>
-                      <FormInput
-                        name={label}
-                        type='text'
-                        theme={{
-                          height: "2.3rem",
-                          fontSizeMD: "16px",
-                        }}
-                      />
-                    </DisplayFlex>
-                  );
-                })}
-            </GridTwo>
-
-            {formLabel &&
-              formLabel.map((item) => {
-                const { id, label } = item;
-
-                return (
-                  <>
-                    {id === 1 ? (
-                      <div key={id}>
+            <form ref={form}>
+              <FormTitle theme={{ fontSizeMD: "var(--font-size-sm)" }}>
+                {formTitle}
+              </FormTitle>
+              <GridTwo>
+                {formNameLabel &&
+                  formNameLabel.map((item) => {
+                    const { id, label } = item;
+                    return (
+                      <DisplayFlex theme={{ flexDirection: "column" }} key={id}>
                         <FormLabel
                           htmlFor={label}
                           theme={{ fontWeight: "200", fontSizeSM: "16px" }}
@@ -107,49 +89,93 @@ export default function ContactLayout({
                         </FormLabel>
                         <FormInput
                           name={label}
-                          type='email'
+                          type='text'
                           theme={{
-                            width: "23rem",
                             height: "2.3rem",
                             fontSizeMD: "16px",
                           }}
-                          mobile
-                        />
-                      </div>
-                    ) : id === 2 ? (
-                      <div key={id}>
-                        <FormLabel
-                          htmlFor={label}
-                          theme={{ fontWeight: "200", fontSizeSM: "16px" }}
-                        >
-                          {label}
-                          <Span>*</Span>
-                        </FormLabel>
-                        <FormTextArea
-                          name={label}
-                          theme={{
-                            width: "23rem",
-                            height: "7rem",
-                            fontSizeMD: "16px",
+                          value={label === "First Name" ? first : last}
+                          onChange={(e) => {
+                            label === "First Name"
+                              ? setFirst(e.target.value)
+                              : setLast(e.target.value);
                           }}
-                          mobile
                         />
-                      </div>
-                    ) : null}
-                  </>
-                );
-              })}
-            <FormButton
-              theme={{
-                width: "23rem",
-                height: "2.3rem",
-                fontSizeSM: "17px",
-                fontWeight: "bold",
-              }}
-              mobile
-            >
-              {formButtonLabel}
-            </FormButton>
+                      </DisplayFlex>
+                    );
+                  })}
+              </GridTwo>
+              {formLabel &&
+                formLabel.map((item) => {
+                  const { id, label } = item;
+
+                  return (
+                    <>
+                      {id === 1 ? (
+                        <div key={id}>
+                          <FormLabel
+                            htmlFor={label}
+                            theme={{ fontWeight: "200", fontSizeSM: "16px" }}
+                          >
+                            {label}
+                            <Span>*</Span>
+                          </FormLabel>
+                          <FormInput
+                            name={label}
+                            type='email'
+                            theme={{
+                              width: "23rem",
+                              height: "2.3rem",
+                              fontSizeMD: "16px",
+                            }}
+                            value={email}
+                            onChange={(e) => {
+                              setEmail(e.target.value);
+                            }}
+                            mobile
+                          />
+                        </div>
+                      ) : id === 2 ? (
+                        <div key={id}>
+                          <FormLabel
+                            htmlFor={label}
+                            theme={{ fontWeight: "200", fontSizeSM: "16px" }}
+                          >
+                            {label}
+                            <Span>*</Span>
+                          </FormLabel>
+                          <FormTextArea
+                            name={label}
+                            theme={{
+                              width: "23rem",
+                              height: "7rem",
+                              fontSizeMD: "16px",
+                            }}
+                            value={projectDescription}
+                            onChange={(e) => {
+                              setProjectDescription(e.target.value);
+                            }}
+                            mobile
+                          />
+                        </div>
+                      ) : null}
+                    </>
+                  );
+                })}
+              <FormButton
+                disabled={!first || !last || !email || !projectDescription}
+                theme={{
+                  width: "23rem",
+                  height: "2.3rem",
+                  fontSizeSM: "17px",
+                  fontWeight: "bold",
+                }}
+                mobile
+                onClick={(e) => handleSend(e)}
+              >
+                {formButtonLabel}
+              </FormButton>{" "}
+            </form>
           </JustifyContent>
         </Card>
       </ContactContent>
