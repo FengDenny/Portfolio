@@ -1,3 +1,13 @@
+export const technicalHeader = [
+  {
+    id: 1,
+    title: "  Developing websites. Using the power of ",
+    span: " React",
+    description:
+      " I develop and design websites providing scalability, user experiences, and great user interfaces.",
+  },
+];
+
 export const technical = [
   {
     front: [
