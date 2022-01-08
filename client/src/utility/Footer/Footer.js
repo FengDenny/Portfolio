@@ -37,7 +37,7 @@ export default function Footer() {
               <DisplayFlexRow>
                 <li>
                   <NavLink
-                    href='/#/about'
+                    href='/#about'
                     theme={{
                       fontWeight: "200",
                       primaryColor: "var(--primary-color)",
@@ -49,7 +49,33 @@ export default function Footer() {
                 </li>
                 <li>
                   <NavLink
-                    href='#'
+                    href='/#portfolio'
+                    theme={{
+                      fontWeight: "200",
+                      primaryColor: "var(--primary-color)",
+                      fontSizeXSM: "var(--font-size-sm)",
+                    }}
+                  >
+                    Portfolio
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    href='/#services'
+                    theme={{
+                      fontWeight: "200",
+                      primaryColor: "var(--primary-color)",
+                      fontSizeXSM: "var(--font-size-sm)",
+                    }}
+                  >
+                    Services
+                  </NavLink>
+                </li>
+              </DisplayFlexRow>
+              <DisplayFlexRow>
+                <li>
+                  <NavLink
+                    href='/#contact'
                     theme={{
                       fontWeight: "200",
                       primaryColor: "var(--primary-color)",
