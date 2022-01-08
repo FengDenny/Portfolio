@@ -246,6 +246,9 @@ export const FooterContainer = styled.footer`
     position: relative;
     margin-top: 5px;
   }
+  li {
+    padding: 10px 0;
+  }
 `;
 
 // Hambuger

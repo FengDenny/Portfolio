@@ -87,6 +87,7 @@ export const theme = {
   marginLeftSM: "0.5rem",
   marginRight: "0",
   paddingTop: "1rem",
+  translate: " translate(-50%, -50%)",
 };
 
 // Containers
@@ -126,11 +127,11 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
-  grid-template-rows:  0.1fr 0.15fr 0.20fr 1fr auto auto auto;
+  grid-template-rows:  0.1fr 0.15fr 0.20fr 1fr auto  0.35fr auto;
  `} 
   ${MediaQueries("mobileM")`
 
-  grid-template-rows:  0.1fr 0.40fr 0.20fr 1fr auto auto auto;
+  grid-template-rows:  0.1fr 0.40fr 0.20fr 1fr auto 0.35fr auto;
  `}
 `;
 
@@ -194,7 +195,7 @@ export const H2 = styled.h2`
   ${(props) =>
     props.header &&
     MediaQueries("mobileL")`
-    font-size:30px;
+    font-size:23px;
     width: 22rem;
     `}
 `;
@@ -281,6 +282,13 @@ font-size:var(--font-size-sm);
   
   ${(props) =>
     props.contact &&
+    MediaQueries("laptop")`
+    padding: 10px 0;
+
+  `}
+ 
+  ${(props) =>
+    props.contact &&
     MediaQueries("mobileL")`
     width: 20rem;
     font-size: 14px;
@@ -346,40 +354,22 @@ export const PositionAbsolute = styled.div`
   bottom: ${(props) => props.theme.bottom};
   right: ${(props) => props.theme.right};
   left: ${(props) => props.theme.left};
+  transform: ${(props) => props.theme.transform};
 
-  ${MediaQueries("laptop")`
-  bottom: 0.5rem;
-  left: 11rem;
- `}
-
-  ${MediaQueries("mobileL")`
-  bottom: 0.5rem;
-  left: 9rem;
- `}
- ${MediaQueries("mobileM")`
- bottom: 0rem;
- left: 7rem;
- `}
+  ${(props) =>
+    props.laptop === true
+      ? MediaQueries("laptop")`
+      bottom: 0rem;
+      right: 35%;
+  }
+  `
+      : null}
 `;
 export const PositionCenter = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  //   ${MediaQueries("laptop")`
-//   bottom: 0.5rem;
-//   left: 11rem;
-//  `}
-
-  //   ${MediaQueries("mobileL")`
-//   bottom: 0.5rem;
-//   left: 9rem;
-//  `}
-  //  ${MediaQueries("mobileM")`
-//   bottom: 0.5rem;
-//   left: 8rem;
-//  `}
 `;
 
 export const PositionRelativeMQ = styled.div`
@@ -481,12 +471,13 @@ export const Card = styled(motion.div)`
   box-shadow: var(--drop-shadow);
 
   ${MediaQueries("laptop")`
-  width: 27rem;
+    width: 27rem;
     right:1rem;
+    margin-top:1rem;
  `}
 
   ${MediaQueries("mobileL")`
-  width: 21rem;
+    width: 21rem;
     right:2rem;
  `}
 `;
