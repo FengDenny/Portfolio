@@ -11,40 +11,52 @@ import {
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
 import TechnicalLayout from "../../components/Technical/layout";
-import { technical } from "../../data/technical";
+import { technical, technicalHeader } from "../../data/technical";
 
 export default function Technical() {
   return (
     <ThemeProvider theme={theme}>
       <TechnicalContent id='services'>
-        <TechnicalContainer>
-          <H2
-            theme={{
-              fontSizeMD: "var(--font-size-lg)",
-              primaryColor: "var(--primary-color)",
-            }}
-            header
-          >
-            Developing websites. Using the power of <Span>React</Span>.
-          </H2>
-          <ParagraphSM
-            theme={{
-              primaryColor: "var(--primary-color)",
-              fontWeight: "200",
-              fontSizeMD: "var(--font-size-sm)",
-              marginRight: "16rem",
-            }}
-            pmobile
-          >
-            I develop and design websites that provides scalability, user
-            experiences, and great user interfaces.{" "}
-          </ParagraphSM>
-          <GridContainer>
-            {technical.map((technical, id) => (
-              <TechnicalLayout technical={technical} key={id} />
-            ))}
-          </GridContainer>
-        </TechnicalContainer>
+        {" "}
+        {technicalHeader &&
+          technicalHeader.map((item) => {
+            const { id, title, span, description } = item;
+
+            return (
+              <>
+                {" "}
+                <TechnicalContainer key={id}>
+                  <H2
+                    theme={{
+                      fontSizeMD: "var(--font-size-lg)",
+                      primaryColor: "var(--primary-color)",
+                    }}
+                    header
+                  >
+                    {title}
+                    <Span>{span}</Span>.
+                  </H2>
+                  <ParagraphSM
+                    theme={{
+                      primaryColor: "var(--primary-color)",
+                      fontWeight: "200",
+                      fontSizeMD: "var(--font-size-sm)",
+                      marginRight: "16rem",
+                    }}
+                    pmobile
+                  >
+                    {description}
+                  </ParagraphSM>
+
+                  <GridContainer>
+                    {technical.map((technical, id) => (
+                      <TechnicalLayout technical={technical} key={id} />
+                    ))}
+                  </GridContainer>
+                </TechnicalContainer>
+              </>
+            );
+          })}
       </TechnicalContent>
     </ThemeProvider>
   );
