@@ -7,7 +7,7 @@ import {
   HeroCardContainer,
   CardButton,
   DisplayFlexCenter,
-  DisplayFlexRow,
+  JustifyContent,
   PositionAbsolute,
   ProjectLink,
 } from "../../styled-components/globalStyled";
@@ -103,19 +103,23 @@ export default function Card({
                 Demo
               </CardButton>
             </MarginTop>
-            <DisplayFlexRow>
+            <JustifyContent theme={{ justifyContent: "center" }}>
               <PositionAbsolute
                 theme={
                   id === 2 || id === 4
                     ? {
-                        bottom: " 0.5rem",
-                        left: " 28rem",
+                        bottom: " 0rem",
+                      }
+                    : id === 1 || id === 3
+                    ? {
+                        bottom: " 0rem",
+                        right: "44%",
                       }
                     : {
-                        bottom: " 0.5rem",
-                        left: " 23rem",
+                        bottom: " 0rem",
                       }
                 }
+                laptop={id === 1 || id === 3 ? true : false}
               >
                 <ProjectLink
                   onClick={() =>
@@ -164,7 +168,7 @@ export default function Card({
                   <FaFigma />
                 </ProjectLink>
               </PositionAbsolute>
-            </DisplayFlexRow>
+            </JustifyContent>
           </div>
           <DisplayFlexCenter>
             <img
