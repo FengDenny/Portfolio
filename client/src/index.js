@@ -38,7 +38,6 @@ ReactDOM.render(
         </Router>
       </PersistGate>
     </Provider>
-    ,
   </React.StrictMode>,
   document.getElementById("root")
 );
