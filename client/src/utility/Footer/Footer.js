@@ -18,7 +18,6 @@ export default function Footer() {
           <div>
             <GorditasH2
               theme={{
-                marginLeft: "var(--margin-left-5)",
                 fontSizeMD: "var(--font-size-md)",
                 primaryColor: "var(--primary-color)",
               }}
@@ -28,7 +27,7 @@ export default function Footer() {
             <Paragraph
               theme={{
                 fontSizeMD: "var(--font-size-sm)",
-                marginLeftSM: "0.5rem",
+                marginLeftSM: "0.1rem",
               }}
             >
               Made with passion and a warm cup of coffee.

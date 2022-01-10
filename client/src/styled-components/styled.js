@@ -20,7 +20,7 @@ export const Main = styled.main`
   height: 45%;
 
   ${MediaQueries("laptop")`
-  height: 45%;
+  height: 25%;
 `};
 `;
 
@@ -42,7 +42,7 @@ export const AboutSection = styled(motion.section)`
 // Contact
 
 export const ContactSection = styled(motion.section)`
-  margin-left: ${(props) => props.theme.marginLeftSM};
+  margin: auto;
   grid-area: contact;
 `;
 

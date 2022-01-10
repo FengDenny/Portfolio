@@ -74,7 +74,7 @@ export default function Contact() {
   };
   return (
     <ThemeProvider theme={theme}>
-      <ContactSection theme={{ marginLeftSM: "5rem" }} id='contact'>
+      <ContactSection id='contact'>
         {contact.map((contact, index) => (
           <ContactLayout
             contact={contact}

@@ -137,7 +137,7 @@ export const Container = styled.div`
  `} 
   ${MediaQueries("mobileM")`
 
-  grid-template-rows:  0.1fr 0.40fr 0.20fr 1fr auto 0.35fr 0.1fr;
+  grid-template-rows:  0.1fr 0.16fr 0.20fr 1fr 0.2fr 0.45fr 0.1fr;
  `}
 `;
 
@@ -283,6 +283,7 @@ font-size:var(--font-size-sm);
     props.card &&
     MediaQueries("mobileL")`
     margin-left: 0rem;
+    font-size:13px !important;
 
   `}  
     ${(props) =>
@@ -305,7 +306,7 @@ font-size:var(--font-size-sm);
     MediaQueries("mobileL")`
     width: 20rem;
     font-size: 14px;
-    margin-right: 46px;
+    margin-right: 0;
 
   `}
 `;
@@ -522,10 +523,13 @@ export const Card = styled(motion.div)`
 
   ${MediaQueries("mobileL")`
     width: 21rem;
-    right:2rem;
+    right:0;
     .banner {
       width: 21rem;
-      font-size: 10px;
+      
+    }
+    h4{
+      font-size:13px;
     }
  `}
 `;
