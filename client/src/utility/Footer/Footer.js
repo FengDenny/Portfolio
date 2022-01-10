@@ -1,7 +1,7 @@
 import React from "react";
 import {
   theme,
-  DisplayFlexCenter,
+  DisplayFlexStart,
   GorditasH2,
   Paragraph,
   DisplayFlexRow,
@@ -13,7 +13,7 @@ import ResumePDF from "../../data/Denny Resume.pdf";
 export default function Footer() {
   return (
     <ThemeProvider theme={theme}>
-      <DisplayFlexCenter>
+      <DisplayFlexStart mobile>
         <FooterContainer>
           <div>
             <GorditasH2
@@ -116,7 +116,7 @@ export default function Footer() {
             </ul>
           </div>
         </FooterContainer>
-      </DisplayFlexCenter>
+      </DisplayFlexStart>
     </ThemeProvider>
   );
 }

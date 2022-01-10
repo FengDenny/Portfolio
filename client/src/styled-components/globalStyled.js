@@ -425,22 +425,20 @@ export const DisplayFlexRow = styled(motion.div)`
   `}
 `;
 
-// grid
-
-export const GridTwo = styled.div`
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(2, 11rem);
-  grid-gap: 14px;
-
-  ${MediaQueries("mobileL")`
-  grid-template-columns: repeat(2, 9rem);
- `}
-`;
-
 export const DisplayFlexCenter = styled.div`
   display: flex;
   justify-content: center;
+`;
+export const DisplayFlexStart = styled.div`
+  display: flex;
+  justify-content: start;
+
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("laptop")`
+  justify-content:center
+  `
+      : null}
 `;
 export const JustifyContent = styled.div`
   display: flex;
@@ -460,6 +458,18 @@ export const JustifyContent = styled.div`
    margin-left:-5px
   `
       : null}
+`;
+// grid
+
+export const GridTwo = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 11rem);
+  grid-gap: 14px;
+
+  ${MediaQueries("mobileL")`
+  grid-template-columns: repeat(2, 9rem);
+ `}
 `;
 
 // HR

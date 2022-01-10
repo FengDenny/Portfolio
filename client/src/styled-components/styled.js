@@ -262,6 +262,15 @@ export const FooterContainer = styled.footer`
   li {
     padding: 10px 0;
   }
+
+  ${(props) =>
+    props.mobile
+      ? MediaQueries("laptop")`
+
+      left: 33px;
+    position: relative;
+  `
+      : null}
 `;
 
 // Hambuger
