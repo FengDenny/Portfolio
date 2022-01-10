@@ -205,6 +205,7 @@ margin-top:10px;
 export const NavDesktop = styled.ul`
   position: relative;
   display: flex;
+  top: 25px;
   ${MediaQueries("laptop")`
     display:none;
 `}

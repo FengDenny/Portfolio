@@ -934,7 +934,7 @@ export const FormButton = styled.button`
 
 export const TopScrollButton = styled(motion.button)`
   position: relative;
-  top: 2rem;
+  top: 5rem;
   right: 5rem;
   border: none;
   background: var(--secondary-color);
