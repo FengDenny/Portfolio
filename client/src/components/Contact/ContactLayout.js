@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ContactContent } from "../../styled-components/styled";
 import {
   H2,
@@ -16,9 +16,16 @@ import {
   FormTextArea,
   MobileContainer,
   HRLine,
+  ErrorFormLabel,
 } from "../../styled-components/globalStyled";
 import { ThemeProvider } from "styled-components";
-
+import { useSelector } from "react-redux";
+import {
+  bannerContainer,
+  bannerItem,
+  draw,
+} from "../../components/Variants/Variants";
+import { motion } from "framer-motion";
 export default function ContactLayout({
   contact: {
     title,
@@ -37,8 +44,16 @@ export default function ContactLayout({
   setLast,
   setEmail,
   setProjectDescription,
-  form,
+  formRef,
+  firstNameError,
+  lastNameError,
+  emailError,
+  descriptionError,
 }) {
+  const { form } = useSelector((state) => ({ ...state }));
+
+  const { submit } = form;
+
   return (
     <ThemeProvider theme={theme}>
       <ContactContent>
@@ -65,12 +80,24 @@ export default function ContactLayout({
               </ParagraphSM>
             ))}
         </div>
-        <Card theme={{ width: "25rem", height: "27rem" }}>
+        <Card theme={{ width: "25rem", height: "33rem" }}>
+          {submit === true ? (
+            <>
+              <motion.div
+                variants={bannerContainer}
+                initial='hidden'
+                animate='show'
+                className='banner'
+              >
+                <motion.h2>Message received! Contact you soon!</motion.h2>
+              </motion.div>
+            </>
+          ) : null}
           <JustifyContent
             theme={{ justifyContent: "center", flexDirectionRow: "column" }}
             form={"true"}
           >
-            <form ref={form}>
+            <form ref={formRef}>
               <FormTitle theme={{ fontSizeMD: "var(--font-size-sm)" }}>
                 {formTitle}
               </FormTitle>
@@ -87,20 +114,56 @@ export default function ContactLayout({
                           {label}
                           <Span>*</Span>
                         </FormLabel>
-                        <FormInput
-                          name={label}
-                          type='text'
-                          theme={{
-                            height: "2.3rem",
-                            fontSizeMD: "16px",
-                          }}
-                          value={label === "First Name" ? first : last}
-                          onChange={(e) => {
-                            label === "First Name"
-                              ? setFirst(e.target.value)
-                              : setLast(e.target.value);
-                          }}
-                        />
+                        {(label === "First Name" && firstNameError) ||
+                        (label === "Last Name" && lastNameError) ? (
+                          <FormInput
+                            id={label}
+                            name={label}
+                            type='text'
+                            theme={{
+                              height: "2.3rem",
+                              fontSizeMD: "16px",
+                            }}
+                            value={label === "First Name" ? first : last}
+                            onChange={(e) => {
+                              label === "First Name"
+                                ? setFirst(e.target.value)
+                                : setLast(e.target.value);
+                            }}
+                            error
+                            required
+                          />
+                        ) : (
+                          <FormInput
+                            id={label}
+                            name={label}
+                            type='text'
+                            theme={{
+                              height: "2.3rem",
+                              fontSizeMD: "16px",
+                            }}
+                            value={label === "First Name" ? first : last}
+                            onChange={(e) => {
+                              label === "First Name"
+                                ? setFirst(e.target.value)
+                                : setLast(e.target.value);
+                            }}
+                            required
+                          />
+                        )}
+                        {(label === "First Name" && firstNameError) ||
+                        (label === "Last Name" && lastNameError) ? (
+                          <ErrorFormLabel
+                            theme={{
+                              fontWeight: "200",
+                              fontSizeSM: "16px",
+                            }}
+                          >
+                            {label === "First Name"
+                              ? firstNameError
+                              : lastNameError}
+                          </ErrorFormLabel>
+                        ) : null}
                       </DisplayFlex>
                     );
                   })}
@@ -120,20 +183,51 @@ export default function ContactLayout({
                             {label}
                             <Span>*</Span>
                           </FormLabel>
-                          <FormInput
-                            name={label}
-                            type='email'
+                          {emailError ? (
+                            <FormInput
+                              id={label}
+                              name={label}
+                              type='email'
+                              theme={{
+                                width: "23rem",
+                                height: "2.3rem",
+                                fontSizeMD: "16px",
+                              }}
+                              value={email}
+                              onChange={(e) => {
+                                setEmail(e.target.value);
+                              }}
+                              mobile
+                              required
+                              error
+                            />
+                          ) : (
+                            <FormInput
+                              id={label}
+                              name={label}
+                              type='email'
+                              theme={{
+                                width: "23rem",
+                                height: "2.3rem",
+                                fontSizeMD: "16px",
+                              }}
+                              value={email}
+                              onChange={(e) => {
+                                setEmail(e.target.value);
+                              }}
+                              mobile
+                              required
+                            />
+                          )}
+
+                          <ErrorFormLabel
                             theme={{
-                              width: "23rem",
-                              height: "2.3rem",
-                              fontSizeMD: "16px",
+                              fontWeight: "200",
+                              fontSizeSM: "16px",
                             }}
-                            value={email}
-                            onChange={(e) => {
-                              setEmail(e.target.value);
-                            }}
-                            mobile
-                          />
+                          >
+                            {emailError}
+                          </ErrorFormLabel>
                         </div>
                       ) : id === 2 ? (
                         <div key={id}>
@@ -144,26 +238,67 @@ export default function ContactLayout({
                             {label}
                             <Span>*</Span>
                           </FormLabel>
-                          <FormTextArea
-                            name={label}
+
+                          {descriptionError ? (
+                            <FormTextArea
+                              id={label}
+                              name={label}
+                              theme={{
+                                width: "23rem",
+                                height: "7rem",
+                                fontSizeMD: "16px",
+                              }}
+                              value={projectDescription}
+                              onChange={(e) => {
+                                setProjectDescription(e.target.value);
+                              }}
+                              mobile
+                              required
+                              error
+                            />
+                          ) : (
+                            <FormTextArea
+                              id={label}
+                              name={label}
+                              theme={{
+                                width: "23rem",
+                                height: "7rem",
+                                fontSizeMD: "16px",
+                              }}
+                              value={projectDescription}
+                              onChange={(e) => {
+                                setProjectDescription(e.target.value);
+                              }}
+                              mobile
+                              required
+                            />
+                          )}
+
+                          <ErrorFormLabel
                             theme={{
-                              width: "23rem",
-                              height: "7rem",
-                              fontSizeMD: "16px",
+                              fontWeight: "200",
+                              fontSizeSM: "16px",
                             }}
-                            value={projectDescription}
-                            onChange={(e) => {
-                              setProjectDescription(e.target.value);
-                            }}
-                            mobile
-                          />
+                          >
+                            {descriptionError}
+                          </ErrorFormLabel>
                         </div>
                       ) : null}
                     </>
                   );
                 })}
               <FormButton
-                disabled={!first || !last || !email || !projectDescription}
+                disabled={
+                  !first ||
+                  firstNameError ||
+                  !last ||
+                  lastNameError ||
+                  !email ||
+                  !projectDescription ||
+                  emailError ||
+                  descriptionError ||
+                  submit === true
+                }
                 theme={{
                   width: "23rem",
                   height: "2.3rem",
@@ -173,8 +308,8 @@ export default function ContactLayout({
                 mobile
                 onClick={(e) => handleSend(e)}
               >
-                {formButtonLabel}
-              </FormButton>{" "}
+                {submit ? "Submitted" : formButtonLabel}
+              </FormButton>
             </form>
           </JustifyContent>
         </Card>
