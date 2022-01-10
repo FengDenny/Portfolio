@@ -3,6 +3,7 @@ const INITIAL_STATE = {
   lastName: "",
   email: "",
   description: "",
+  submit: false,
 };
 
 const formReducer = (state = INITIAL_STATE, action) => {
@@ -15,6 +16,8 @@ const formReducer = (state = INITIAL_STATE, action) => {
       return { ...state, email: action.email };
     case "SET_USER_DESCRIPTION":
       return { ...state, description: action.description };
+    case "SET_USER_SUBMIT":
+      return { ...state, submit: action.submit };
     default:
       return state;
   }
