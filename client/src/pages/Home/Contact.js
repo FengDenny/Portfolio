@@ -30,6 +30,12 @@ export default function Contact() {
   const [descriptionError, setDescriptionError] = useState();
   const formRef = useRef();
   const dispatch = useDispatch();
+  const toggleID = [
+    "First Name",
+    "Last Name",
+    "Email Address",
+    "Project Description",
+  ];
 
   useEffect(() => {
     first &&
@@ -58,6 +64,9 @@ export default function Contact() {
         setLast(" ");
         setEmail(" ");
         setProjectDescription(" ");
+        toggleID.map((id) =>
+          document.getElementById(id).classList.remove("green")
+        );
       })
       .catch((err) => {
         console.log(err);
