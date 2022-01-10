@@ -941,7 +941,7 @@ export const TopScrollButton = styled(motion.button)`
 
   ${MediaQueries("laptop")`
     margin:auto;
-    left:21px;
+    left:0;
     top:0;
 
   `};
