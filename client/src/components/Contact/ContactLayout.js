@@ -22,8 +22,8 @@ import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
 import {
   bannerContainer,
-  bannerItem,
-  draw,
+  container,
+  item,
 } from "../../components/Variants/Variants";
 import { motion } from "framer-motion";
 export default function ContactLayout({
@@ -80,7 +80,13 @@ export default function ContactLayout({
               </ParagraphSM>
             ))}
         </div>
-        <Card theme={{ width: "25rem", height: "33rem" }}>
+        <Card
+          theme={{ width: "25rem", height: "33rem" }}
+          variants={container}
+          initial='offscreen'
+          whileInView='onscreen'
+          viewport={{ once: true, amount: 1 }}
+        >
           {submit === true ? (
             <>
               <motion.div
@@ -89,7 +95,9 @@ export default function ContactLayout({
                 animate='show'
                 className='banner'
               >
-                <motion.h2>Message received! Contact you soon!</motion.h2>
+                <motion.h4>
+                  Message received, and will contact you soon. Thanks!
+                </motion.h4>
               </motion.div>
             </>
           ) : null}
@@ -97,7 +105,7 @@ export default function ContactLayout({
             theme={{ justifyContent: "center", flexDirectionRow: "column" }}
             form={"true"}
           >
-            <form ref={formRef}>
+            <motion.form ref={formRef} variants={item}>
               <FormTitle theme={{ fontSizeMD: "var(--font-size-sm)" }}>
                 {formTitle}
               </FormTitle>
@@ -307,10 +315,11 @@ export default function ContactLayout({
                 }}
                 mobile
                 onClick={(e) => handleSend(e)}
+                whileTap={{ scale: 0.9 }}
               >
                 {submit ? "Submitted" : formButtonLabel}
               </FormButton>
-            </form>
+            </motion.form>
           </JustifyContent>
         </Card>
       </ContactContent>

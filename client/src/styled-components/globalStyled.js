@@ -29,6 +29,11 @@ html,body{
 .green {
   border: 1px solid var(--success);
 }
+
+.white{
+  border:1px solid var(--white-color);
+}
+
 .none {
   display: none;
 }
@@ -491,7 +496,11 @@ export const Card = styled(motion.div)`
   height: ${(props) => props.theme.height};
   position: relative;
   box-shadow: var(--drop-shadow);
-
+  h4 {
+    font-size: 15px;
+    padding-top: 4px;
+    height: 2rem;
+  }
   .banner {
     background: var(--secondary-color);
     color: var(--white-color);
@@ -861,6 +870,9 @@ export const FormLabel = styled.label`
 export const ErrorFormLabel = styled(FormLabel)`
   font-size: var(--font-size-mobile);
   color: var(--error);
+  height: 1rem;
+  position: relative;
+  bottom: 14px;
 `;
 
 export const FormInput = styled.input`
@@ -905,7 +917,7 @@ export const FormTextArea = styled.textarea`
       : "border: 1px solid var(--white-color);"}
 `;
 
-export const FormButton = styled.button`
+export const FormButton = styled(motion.button)`
   width: ${(props) => props.theme.width};
   height: ${(props) => props.theme.height};
   background: var(--secondary-color);
