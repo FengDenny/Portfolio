@@ -137,7 +137,7 @@ export const Container = styled.div`
  `} 
   ${MediaQueries("mobileM")`
 
-  grid-template-rows:  0.1fr 0.16fr 0.20fr 1fr 0.2fr 0.45fr 0.1fr;
+  grid-template-rows:  0.1fr 0.16fr 0.20fr 1fr auto 0.45fr 0.1fr;
  `}
 `;
 
