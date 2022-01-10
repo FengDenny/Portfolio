@@ -27,11 +27,7 @@ html,body{
 }
 
 .green {
-  border: 1px solid var(--success);
-}
-
-.white{
-  border:1px solid var(--white-color);
+  border: 1px solid var(--success) !important;
 }
 
 .none {
