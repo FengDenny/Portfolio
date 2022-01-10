@@ -134,9 +134,22 @@ export const AboutContent = styled(motion.div)`
   margin-top:2rem;
   .about-card {
    left:0;
-   width:23rem
+   width:22rem
   }
 `};
+  ${MediaQueries("mobileM")`
+  margin-top:2rem;
+  .about-card {
+
+   width:22rem
+  }
+  `} ${MediaQueries("mobileS")`
+  margin-top:2rem;
+  .about-card {
+
+   width:22rem
+  }
+  `}
 `;
 export const ContactContent = styled(motion.div)`
   margin-top: ${(props) => props.theme.marginTop};
@@ -298,3 +311,18 @@ export const StyledBurger = styled(motion.button)`
 `}
 `;
 export const StyledMenu = styled(motion.div)``;
+
+export const Progress = styled.svg`
+  position: fixed;
+  position: fixed;
+  top: 20px;
+  left: 8px;
+  width: 80px;
+  height: 80px;
+  ${MediaQueries("laptop")`
+  top: 114px;
+`}
+  ${MediaQueries("tablet")`
+  display:none;
+`}
+`;

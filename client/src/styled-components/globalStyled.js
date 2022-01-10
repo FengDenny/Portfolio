@@ -21,11 +21,16 @@ html{
   }
 
 html,body{
-  width: 100%;
-	height: 100%;
     background:var(--bg-color);
     font-family:var(--primary-font);
 
+}
+
+.green {
+  border: 1px solid var(--success);
+}
+.none {
+  display: none;
 }
 
 :root{
@@ -38,6 +43,8 @@ html,body{
     --white-hover: #EAEAEA;
     --data-suvery-color: #7796FE;
     --data-suvery-color-hover: #4E65B5;
+    --success: #35c03a;
+    --error: #ed455d;
     --primary-font: 'Nunito', sans-serif;
     --secondary-font :'Gorditas', cursive;
     --border-radius: 10px;
@@ -53,8 +60,6 @@ html,body{
     --margin-left-5: 5px;
     --width-100:100%;
 
-   
-  
 }
 `;
 
@@ -127,11 +132,11 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
-  grid-template-rows:  0.1fr 0.15fr 0.20fr 1fr auto  0.35fr auto;
+  grid-template-rows:  0.1fr 0.15fr 0.20fr 1fr auto  0.35fr 0.1fr;
  `} 
   ${MediaQueries("mobileM")`
 
-  grid-template-rows:  0.1fr 0.40fr 0.20fr 1fr auto 0.35fr auto;
+  grid-template-rows:  0.1fr 0.40fr 0.20fr 1fr auto 0.35fr 0.1fr;
  `}
 `;
 
@@ -277,6 +282,13 @@ font-size:var(--font-size-sm);
     props.card &&
     MediaQueries("mobileL")`
     margin-left: 0rem;
+
+  `}  
+    ${(props) =>
+    props.card &&
+    MediaQueries("mobileS")`
+    font-size:13px !important;
+    width:17rem !important;
 
   `}  
   
@@ -470,15 +482,36 @@ export const Card = styled(motion.div)`
   position: relative;
   box-shadow: var(--drop-shadow);
 
+  .banner {
+    background: var(--secondary-color);
+    color: var(--white-color);
+    position: relative;
+    bottom: 18px;
+    right: 1.1rem;
+    border-radius: 5px;
+    width: 25rem;
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
   ${MediaQueries("laptop")`
     width: 27rem;
     right:1rem;
     margin-top:1rem;
+
+    .banner {
+      width: 27rem;
+    }
  `}
 
   ${MediaQueries("mobileL")`
     width: 21rem;
     right:2rem;
+    .banner {
+      width: 21rem;
+      font-size: 10px;
+    }
  `}
 `;
 
@@ -815,6 +848,11 @@ export const FormLabel = styled.label`
   flex-direction: row;
 `;
 
+export const ErrorFormLabel = styled(FormLabel)`
+  font-size: var(--font-size-mobile);
+  color: var(--error);
+`;
+
 export const FormInput = styled.input`
   width: ${(props) => props.theme.width};
   height: ${(props) => props.theme.height};
@@ -830,6 +868,10 @@ export const FormInput = styled.input`
    width:19rem;
   `
       : null};
+  ${(props) =>
+    props.error
+      ? "border: 1px solid var(--error)"
+      : "border: 1px solid var(--white-color);"}
 `;
 export const FormTextArea = styled.textarea`
   width: ${(props) => props.theme.width};
@@ -847,6 +889,10 @@ export const FormTextArea = styled.textarea`
    width:19rem;
   `
       : null};
+  ${(props) =>
+    props.error
+      ? "border: 1px solid var(--error)"
+      : "border: 1px solid var(--white-color);"}
 `;
 
 export const FormButton = styled.button`
@@ -872,4 +918,31 @@ export const FormButton = styled.button`
    width:19rem;
   `
       : null};
+`;
+
+// Scroll Button
+
+export const TopScrollButton = styled(motion.button)`
+  position: relative;
+  top: 2rem;
+  right: 5rem;
+  border: none;
+  background: var(--secondary-color);
+  cursor: pointer;
+  font-size: 3rem;
+  border-radius: 5px;
+  height: 3rem;
+  width: 3rem;
+  color: var(--white-color);
+  box-shadow: var(--drop-shadow);
+  svg {
+    filter: drop-shadow(var(--drop-shadow));
+  }
+
+  ${MediaQueries("laptop")`
+    margin:auto;
+    left:21px;
+    top:0;
+
+  `};
 `;
