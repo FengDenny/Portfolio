@@ -50,3 +50,18 @@ export const item = {
     opacity: 1,
   },
 };
+
+export const bannerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.5,
+      easeIn: [0.17, 0.67, 1, 1.5],
+    },
+  },
+};
+export const bannerItem = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+};
