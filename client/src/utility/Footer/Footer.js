@@ -8,7 +8,7 @@ import {
 } from "../../styled-components/globalStyled";
 import { FooterContainer, NavLink } from "../../styled-components/styled";
 import { ThemeProvider } from "styled-components";
-import ResumePDF from "../../data/Denny Resume.pdf";
+import ResumePDF from "../../data/Denny Feng's Resume.pdf";
 
 export default function Footer() {
   return (
