@@ -7,7 +7,7 @@ import {
   NavLI,
   NavDesktop,
 } from "../../../styled-components/styled";
-import ResumePDF from "../../../data/Denny Resume.pdf";
+import ResumePDF from "../../../data/Denny Feng's Resume.pdf";
 import { AnimatePresence } from "framer-motion";
 export default function BurgerMenu({ open = false, closeNavMenu }) {
   const NavLinks = () => {
