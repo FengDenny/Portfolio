@@ -20,7 +20,7 @@ export const Main = styled.main`
   height: 45%;
 
   ${MediaQueries("laptop")`
-  height: 25%;
+  height: 35%;
 `};
 `;
 
