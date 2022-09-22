@@ -133,7 +133,7 @@ export const Container = styled.div`
  `}
   ${MediaQueries("mobileL")`
   max-width:1400px;
-  grid-template-rows:  0.1fr 0.15fr 0.20fr 1fr auto  0.35fr 0.1fr;
+  grid-template-rows:  0.1fr 0.15fr 0.20fr 1fr auto  1.35fr 0.1fr !important;
  `} 
   ${MediaQueries("mobileM")`
 
